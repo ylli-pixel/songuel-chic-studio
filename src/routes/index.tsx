@@ -1,24 +1,626 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import {
+  Scissors, Palette, Sparkles, Wand2, Heart, Star, Phone, MapPin,
+  Instagram, Clock, Mail, ArrowUpRight, Menu, X,
+} from "lucide-react";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import hero from "@/assets/hero.jpg";
+import about from "@/assets/about.jpg";
+import g1 from "@/assets/g1.jpg";
+import g2 from "@/assets/g2.jpg";
+import g3 from "@/assets/g3.jpg";
+import g4 from "@/assets/g4.jpg";
+import g5 from "@/assets/g5.jpg";
+import g6 from "@/assets/g6.jpg";
+
 export const Route = createFileRoute("/")({
-  component: Index,
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+const NAV = [
+  { id: "home", label: "Home" },
+  { id: "services", label: "Dienstleistungen" },
+  { id: "gallery", label: "Galerie" },
+  { id: "about", label: "Über uns" },
+  { id: "contact", label: "Kontakt" },
+];
+
+function Home() {
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
+    <div className="relative overflow-x-clip bg-cream text-ink">
+      <Nav scrolled={scrolled} open={open} setOpen={setOpen} />
+      <main id="main">
+        <Hero />
+        <Services />
+        <About />
+        <Gallery />
+        <Testimonials />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+/* ---------------- NAV ---------------- */
+function Nav({ scrolled, open, setOpen }: { scrolled: boolean; open: boolean; setOpen: (b: boolean) => void }) {
+  return (
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+        scrolled ? "bg-white/85 backdrop-blur-xl shadow-[0_1px_0_0_rgba(0,0,0,0.04)]" : "bg-transparent"
+      }`}
     >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
+        <a href="#home" className="flex items-center gap-2">
+          <span className={`font-display text-xl tracking-tight transition-colors ${scrolled ? "text-ink" : "text-ink"}`}>
+            Hair<span className="italic text-gold">bysonguel</span>
+          </span>
+        </a>
+
+        <nav className="hidden items-center gap-9 lg:flex">
+          {NAV.map((n) => (
+            <a key={n.id} href={`#${n.id}`} className="gold-underline text-sm font-medium text-ink/80 transition-colors hover:text-ink">
+              {n.label}
+            </a>
+          ))}
+        </nav>
+
+        <a href="#contact" className="hidden lg:inline-flex btn-primary !py-3 !px-6 text-sm">
+          Termin
+          <ArrowUpRight className="size-4" />
+        </a>
+
+        <button
+          onClick={() => setOpen(!open)}
+          aria-label={open ? "Menü schliessen" : "Menü öffnen"}
+          className="grid size-11 place-items-center rounded-full border border-ink/15 bg-white/70 backdrop-blur lg:hidden"
+        >
+          {open ? <X className="size-5" /> : <Menu className="size-5" />}
+        </button>
+      </div>
+
+      {open && (
+        <div className="lg:hidden">
+          <div className="mx-4 mb-4 rounded-3xl glass-card p-6">
+            <div className="flex flex-col gap-4">
+              {NAV.map((n) => (
+                <a
+                  key={n.id}
+                  href={`#${n.id}`}
+                  onClick={() => setOpen(false)}
+                  className="text-lg font-medium text-ink"
+                >
+                  {n.label}
+                </a>
+              ))}
+              <a href="#contact" onClick={() => setOpen(false)} className="btn-primary mt-2">
+                Termin vereinbaren
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
+
+/* ---------------- HERO ---------------- */
+function Hero() {
+  return (
+    <section id="home" className="relative min-h-[100svh] overflow-hidden bg-blush">
+      {/* Floating shapes */}
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        <div className="float-a absolute -left-24 top-24 size-[420px] rounded-full bg-white/50 blur-3xl" />
+        <div className="float-b absolute -right-32 top-1/3 size-[520px] rounded-full bg-gold/25 blur-3xl" />
+        <div className="float-a absolute bottom-0 left-1/3 size-[360px] rounded-full bg-white/40 blur-3xl" />
+      </div>
+
+      <div className="relative mx-auto grid min-h-[100svh] max-w-7xl grid-cols-1 items-center gap-12 px-6 pt-32 pb-20 lg:grid-cols-12 lg:gap-8 lg:px-10">
+        {/* Copy */}
+        <div className="lg:col-span-6 rise-in">
+          <span className="eyebrow">Coiffeur · Dübendorf</span>
+          <h1 className="mt-6 font-display text-[clamp(2.75rem,7vw,5.5rem)] leading-[1.02] tracking-tight text-ink">
+            Hair<span className="italic">by</span>
+            <span className="block bg-gradient-to-r from-ink via-gold to-ink bg-[length:200%_auto] bg-clip-text text-transparent">
+              sonĝuel
+            </span>
+          </h1>
+          <p className="mt-8 max-w-lg text-lg leading-relaxed text-ink/70">
+            Professionelle Haarpflege, Balayage und Styling in Dübendorf —
+            mit Handwerk, Ruhe und einem Auge fürs Detail.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <a href="#contact" className="btn-primary">
+              Termin vereinbaren
+              <ArrowUpRight className="size-4" />
+            </a>
+            <a href="#services" className="btn-ghost">Dienstleistungen ansehen</a>
+          </div>
+
+          <div className="mt-14 flex items-center gap-8 text-sm text-ink/70">
+            <div className="flex items-center gap-2">
+              <div className="flex">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="size-4 fill-gold text-gold" />
+                ))}
+              </div>
+              <span>5.0 · Google Bewertungen</span>
+            </div>
+            <div className="hidden h-6 w-px bg-ink/15 sm:block" />
+            <span className="hidden sm:inline">15+ Jahre Erfahrung</span>
+          </div>
+        </div>
+
+        {/* Image */}
+        <div className="relative lg:col-span-6">
+          <div className="relative mx-auto aspect-[4/5] w-full max-w-lg overflow-hidden rounded-[2.5rem] shadow-[0_40px_100px_-30px_rgba(46,46,46,0.35)]">
+            <img
+              src={hero}
+              alt="Elegante Frau mit gepflegter Balayage-Frisur im Salon Hairbysonguel in Dübendorf"
+              width={1600}
+              height={1800}
+              className="size-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink/10 via-transparent to-transparent" />
+          </div>
+
+          {/* Floating cards */}
+          <div className="absolute -left-4 top-10 hidden rounded-2xl glass-card px-5 py-4 sm:block">
+            <div className="flex items-center gap-3">
+              <div className="grid size-10 shrink-0 place-items-center rounded-full bg-gold/20">
+                <Sparkles className="size-5 text-gold" />
+              </div>
+              <div>
+                <div className="text-xs uppercase tracking-widest text-ink/60">Signature</div>
+                <div className="text-sm font-medium">Balayage</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="absolute -bottom-6 right-2 hidden rounded-2xl glass-card px-5 py-4 sm:block">
+            <div className="flex items-center gap-3">
+              <div className="grid size-10 shrink-0 place-items-center rounded-full bg-blush">
+                <Heart className="size-5 text-ink" />
+              </div>
+              <div>
+                <div className="text-xs uppercase tracking-widest text-ink/60">Seit 2010</div>
+                <div className="text-sm font-medium">Mit Leidenschaft</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- SERVICES ---------------- */
+const SERVICES = [
+  { icon: Scissors, title: "Haarschnitt", desc: "Präzise Schnitte, die zu Ihrem Gesicht, Stil und Alltag passen — für Frauen, Männer und Kinder." },
+  { icon: Wand2, title: "Balayage", desc: "Handgemalte Highlights für einen natürlichen, sonnenverwöhnten Look mit weichen Übergängen." },
+  { icon: Palette, title: "Coloration", desc: "Von klassisch bis kreativ — schonende Colorationen mit hochwertigen Premium-Produkten." },
+  { icon: Sparkles, title: "Styling", desc: "Blowouts, Hochsteckfrisuren und Braut-Styling für jeden besonderen Anlass." },
+  { icon: Heart, title: "Beauty", desc: "Augenbrauen, Wimpern und pflegende Treatments — kleine Rituale für einen strahlenden Auftritt." },
+];
+
+function Services() {
+  return (
+    <section id="services" className="relative py-28 lg:py-40">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-end">
+          <div className="max-w-2xl">
+            <span className="eyebrow">Dienstleistungen</span>
+            <h2 className="mt-5 font-display text-4xl tracking-tight text-ink sm:text-5xl lg:text-6xl">
+              Handwerk, das <em className="text-gold">Schönheit</em> spürbar macht.
+            </h2>
+          </div>
+          <p className="max-w-md text-ink/70">
+            Jede Behandlung beginnt mit einer persönlichen Beratung — damit das Ergebnis
+            genau so wird, wie Sie es sich vorstellen.
+          </p>
+        </div>
+
+        <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {SERVICES.map((s, i) => (
+            <article
+              key={s.title}
+              className={`group relative overflow-hidden rounded-3xl border border-black/[0.04] bg-white p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_30px_60px_-25px_rgba(46,46,46,0.25)] ${
+                i === 0 ? "lg:col-span-2 bg-gradient-to-br from-blush to-white" : ""
+              }`}
+            >
+              <div className="absolute -right-16 -top-16 size-48 rounded-full bg-gold/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="relative">
+                <div className="grid size-14 place-items-center rounded-2xl bg-blush text-ink transition-colors duration-500 group-hover:bg-ink group-hover:text-white">
+                  <s.icon className="size-6" />
+                </div>
+                <h3 className="mt-6 font-display text-2xl text-ink">{s.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-ink/65">{s.desc}</p>
+                <div className="mt-6 flex items-center gap-2 text-sm font-medium text-gold opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                  Mehr erfahren <ArrowUpRight className="size-4" />
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- ABOUT ---------------- */
+function About() {
+  return (
+    <section id="about" className="relative overflow-hidden bg-blush/60 py-28 lg:py-40">
+      <div className="pointer-events-none absolute -top-40 right-0 size-[600px] rounded-full bg-white/50 blur-3xl" />
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 lg:grid-cols-12 lg:gap-20 lg:px-10">
+        <div className="relative lg:col-span-6">
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2.5rem] shadow-[0_40px_100px_-30px_rgba(46,46,46,0.35)]">
+            <img
+              src={about}
+              alt="Sonĝuel, Coiffeur-Meisterin und Inhaberin von Hairbysonguel"
+              loading="lazy"
+              width={1200}
+              height={1500}
+              className="size-full object-cover"
+            />
+          </div>
+          <div className="absolute -bottom-6 -right-4 rounded-3xl glass-card px-6 py-5 sm:-right-8">
+            <div className="font-display text-4xl text-ink">15<span className="text-gold">+</span></div>
+            <div className="mt-1 text-xs uppercase tracking-widest text-ink/60">Jahre Erfahrung</div>
+          </div>
+        </div>
+
+        <div className="lg:col-span-6">
+          <span className="eyebrow">Über uns</span>
+          <h2 className="mt-5 font-display text-4xl tracking-tight text-ink sm:text-5xl lg:text-6xl">
+            Ein Salon, in dem Sie <em className="text-gold">ankommen</em> dürfen.
+          </h2>
+          <div className="mt-8 space-y-5 text-ink/75 leading-relaxed">
+            <p>
+              Hairbysonguel ist mehr als ein Coiffeur — es ist ein ruhiger Ort mitten
+              in Dübendorf, an dem Handwerk, Zeit und persönliche Beratung im Mittelpunkt stehen.
+            </p>
+            <p>
+              Mit Leidenschaft für Balayage, natürliche Farbnuancen und individuelle Schnitte
+              begleiten wir unsere Kundinnen seit über 15 Jahren. Jede Behandlung wird
+              sorgfältig auf Sie, Ihre Haarstruktur und Ihren Alltag abgestimmt.
+            </p>
+            <p>
+              Wir arbeiten ausschliesslich mit hochwertigen, schonenden Produkten — für ein
+              Ergebnis, das nicht nur heute, sondern auch morgen strahlt.
+            </p>
+          </div>
+
+          <div className="mt-10 grid grid-cols-3 gap-6 border-t border-ink/10 pt-8">
+            {[
+              { k: "2 000+", v: "Zufriedene Kundinnen" },
+              { k: "100 %", v: "Vegane Produkte" },
+              { k: "5.0 ★", v: "Google Rating" },
+            ].map((s) => (
+              <div key={s.v}>
+                <div className="font-display text-2xl text-ink sm:text-3xl">{s.k}</div>
+                <div className="mt-1 text-xs uppercase tracking-widest text-ink/55">{s.v}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- GALLERY ---------------- */
+const GALLERY = [
+  { src: g1, alt: "Balayage-Highlights mit weichen Übergängen", span: "row-span-2" },
+  { src: g2, alt: "Glänzende brünette Haare mit sanften Wellen", span: "" },
+  { src: g5, alt: "Karamellfarbene Balayage in Bewegung", span: "row-span-2" },
+  { src: g3, alt: "Detail: Coloration im Salon", span: "" },
+  { src: g4, alt: "Elegante Hochsteckfrisur für Braut-Styling", span: "" },
+  { src: g6, alt: "Premium-Haarpflegeprodukte auf Marmortheke", span: "" },
+];
+
+function Gallery() {
+  return (
+    <section id="gallery" className="py-28 lg:py-40">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="eyebrow justify-center">Galerie</span>
+          <h2 className="mt-5 font-display text-4xl tracking-tight text-ink sm:text-5xl lg:text-6xl">
+            Momente aus dem Salon
+          </h2>
+          <p className="mt-6 text-ink/70">
+            Ein kleiner Einblick in unsere Arbeit — von zarten Nuancen bis zu ausdrucksstarken Transformationen.
+          </p>
+        </div>
+
+        <div className="mt-16 grid auto-rows-[220px] grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5 lg:grid-cols-4 lg:auto-rows-[240px]">
+          {GALLERY.map((img, i) => (
+            <figure
+              key={i}
+              className={`group relative overflow-hidden rounded-3xl bg-blush ${img.span}`}
+            >
+              <img
+                src={img.src}
+                alt={img.alt}
+                loading="lazy"
+                className="size-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 translate-y-4 p-5 text-sm font-medium text-white opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                {img.alt}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <div className="mt-12 flex justify-center">
+          <a
+            href="https://instagram.com/hairbysonguel"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-ghost"
+          >
+            <Instagram className="size-4" />
+            Mehr auf Instagram
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- TESTIMONIALS ---------------- */
+const REVIEWS = [
+  {
+    quote: "Ich fühle mich bei Sonĝuel immer wie zuhause. Meine Balayage sieht seit Jahren makellos aus — natürlich, weich, einfach schön.",
+    name: "Laura M.",
+    role: "Kundin seit 2019",
+  },
+  {
+    quote: "Endlich ein Salon, der zuhört. Der Schnitt sitzt perfekt und meine Haare fühlen sich gesünder an als je zuvor.",
+    name: "Nadia K.",
+    role: "Neu in Dübendorf",
+  },
+  {
+    quote: "Für meine Hochzeit hat Sonĝuel ein Styling gezaubert, das alle sprachlos gemacht hat. Absolut empfehlenswert.",
+    name: "Sarah B.",
+    role: "Braut 2024",
+  },
+];
+
+function Testimonials() {
+  return (
+    <section className="relative overflow-hidden bg-ink py-28 text-white lg:py-40">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="float-a absolute -left-20 top-10 size-[400px] rounded-full bg-gold/20 blur-3xl" />
+        <div className="float-b absolute -right-20 bottom-0 size-[500px] rounded-full bg-blush/15 blur-3xl" />
+      </div>
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="eyebrow" style={{ color: "var(--color-gold)" }}>Stimmen</span>
+          <h2 className="mt-5 font-display text-4xl tracking-tight text-white sm:text-5xl lg:text-6xl">
+            Was unsere Kundinnen sagen
+          </h2>
+        </div>
+
+        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
+          {REVIEWS.map((r) => (
+            <figure
+              key={r.name}
+              className="relative rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-lg transition-all duration-500 hover:-translate-y-1 hover:bg-white/10"
+            >
+              <div className="flex gap-1">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="size-4 fill-gold text-gold" />
+                ))}
+              </div>
+              <blockquote className="mt-6 font-display text-xl italic leading-relaxed text-white/90">
+                “{r.quote}”
+              </blockquote>
+              <figcaption className="mt-8 border-t border-white/10 pt-5">
+                <div className="text-sm font-medium text-white">{r.name}</div>
+                <div className="text-xs uppercase tracking-widest text-white/50">{r.role}</div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- CONTACT ---------------- */
+const HOURS = [
+  { d: "Montag", h: "Geschlossen" },
+  { d: "Dienstag", h: "09:00 – 18:30" },
+  { d: "Mittwoch", h: "09:00 – 18:30" },
+  { d: "Donnerstag", h: "09:00 – 20:00" },
+  { d: "Freitag", h: "09:00 – 18:30" },
+  { d: "Samstag", h: "08:00 – 16:00" },
+  { d: "Sonntag", h: "Geschlossen" },
+];
+
+function Contact() {
+  const [sent, setSent] = useState(false);
+  return (
+    <section id="contact" className="relative py-28 lg:py-40">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+          {/* Left: info */}
+          <div className="lg:col-span-5">
+            <span className="eyebrow">Kontakt</span>
+            <h2 className="mt-5 font-display text-4xl tracking-tight text-ink sm:text-5xl lg:text-6xl">
+              Wir freuen uns auf Sie.
+            </h2>
+            <p className="mt-6 max-w-md text-ink/70">
+              Vereinbaren Sie einen Termin oder besuchen Sie uns direkt an der
+              Bahnhofstrasse 33 in Dübendorf.
+            </p>
+
+            <div className="mt-10 space-y-5">
+              <ContactRow icon={MapPin} label="Bahnhofstrasse 33, 8600 Dübendorf" href="https://maps.google.com/?q=Bahnhofstrasse+33+8600+Dübendorf" />
+              <ContactRow icon={Phone} label="+41 44 821 38 71" href="tel:+41448213871" />
+              <ContactRow icon={Mail} label="hallo@hairbysonguel.ch" href="mailto:hallo@hairbysonguel.ch" />
+              <ContactRow icon={Instagram} label="@hairbysonguel" href="https://instagram.com/hairbysonguel" />
+            </div>
+
+            <div className="mt-10 rounded-3xl bg-blush/60 p-6">
+              <div className="flex items-center gap-2 text-ink">
+                <Clock className="size-4 text-gold" />
+                <div className="text-xs font-medium uppercase tracking-widest">Öffnungszeiten</div>
+              </div>
+              <ul className="mt-5 space-y-2 text-sm">
+                {HOURS.map((h) => (
+                  <li key={h.d} className="flex items-center justify-between border-b border-ink/10 pb-2 last:border-0">
+                    <span className="text-ink/70">{h.d}</span>
+                    <span className="font-medium text-ink">{h.h}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Right: form + map */}
+          <div className="lg:col-span-7">
+            <form
+              onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+              className="rounded-[2rem] border border-black/[0.05] bg-white p-8 shadow-[0_30px_80px_-40px_rgba(46,46,46,0.25)] sm:p-10"
+            >
+              <h3 className="font-display text-2xl text-ink">Termin anfragen</h3>
+              <p className="mt-2 text-sm text-ink/60">Wir melden uns innerhalb von 24 Stunden.</p>
+
+              <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
+                <Field label="Name" name="name" required />
+                <Field label="Telefon" name="phone" type="tel" required />
+                <Field label="E-Mail" name="email" type="email" className="sm:col-span-2" required />
+                <div className="sm:col-span-2">
+                  <label className="mb-2 block text-xs font-medium uppercase tracking-widest text-ink/60">
+                    Gewünschte Behandlung
+                  </label>
+                  <select className="w-full rounded-2xl border border-ink/10 bg-cream px-5 py-4 text-sm outline-none transition focus:border-gold focus:bg-white">
+                    <option>Haarschnitt</option>
+                    <option>Balayage</option>
+                    <option>Coloration</option>
+                    <option>Styling</option>
+                    <option>Beauty</option>
+                    <option>Beratung</option>
+                  </select>
+                </div>
+                <div className="sm:col-span-2">
+                  <label className="mb-2 block text-xs font-medium uppercase tracking-widest text-ink/60">Nachricht</label>
+                  <textarea
+                    rows={4}
+                    className="w-full resize-none rounded-2xl border border-ink/10 bg-cream px-5 py-4 text-sm outline-none transition focus:border-gold focus:bg-white"
+                    placeholder="Ihre Wünsche, bevorzugter Termin …"
+                  />
+                </div>
+              </div>
+
+              <button type="submit" className="btn-primary mt-8 w-full sm:w-auto">
+                {sent ? "Danke — wir melden uns!" : "Anfrage senden"}
+                <ArrowUpRight className="size-4" />
+              </button>
+            </form>
+
+            <div className="mt-6 overflow-hidden rounded-[2rem] border border-black/[0.05] bg-white">
+              <iframe
+                title="Standort Hairbysonguel"
+                src="https://www.google.com/maps?q=Bahnhofstrasse+33,+8600+D%C3%BCbendorf&output=embed"
+                width="100%"
+                height="360"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="block w-full grayscale-[15%]"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ContactRow({ icon: Icon, label, href }: { icon: React.ComponentType<{ className?: string }>; label: string; href: string }) {
+  return (
+    <a href={href} className="group flex items-center gap-4">
+      <div className="grid size-12 shrink-0 place-items-center rounded-full bg-blush transition-colors duration-500 group-hover:bg-ink group-hover:text-white">
+        <Icon className="size-5" />
+      </div>
+      <span className="text-ink/80 transition-colors group-hover:text-ink">{label}</span>
+    </a>
+  );
+}
+
+function Field({ label, name, type = "text", required, className = "" }: { label: string; name: string; type?: string; required?: boolean; className?: string }) {
+  return (
+    <div className={className}>
+      <label htmlFor={name} className="mb-2 block text-xs font-medium uppercase tracking-widest text-ink/60">
+        {label}
+      </label>
+      <input
+        id={name}
+        name={name}
+        type={type}
+        required={required}
+        className="w-full rounded-2xl border border-ink/10 bg-cream px-5 py-4 text-sm outline-none transition focus:border-gold focus:bg-white"
       />
     </div>
+  );
+}
+
+/* ---------------- FOOTER ---------------- */
+function Footer() {
+  return (
+    <footer className="bg-ink text-white/80">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 py-20 md:grid-cols-4 lg:px-10">
+        <div className="md:col-span-2">
+          <div className="font-display text-2xl text-white">
+            Hair<span className="italic text-gold">bysonguel</span>
+          </div>
+          <p className="mt-4 max-w-sm text-sm text-white/60">
+            Premium Coiffeur-Salon in Dübendorf. Balayage, Coloration, Styling &
+            Beauty — mit Handwerk und Herz.
+          </p>
+          <a href="https://instagram.com/hairbysonguel" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-sm transition hover:border-gold hover:text-gold">
+            <Instagram className="size-4" /> @hairbysonguel
+          </a>
+        </div>
+
+        <div>
+          <div className="text-xs font-medium uppercase tracking-widest text-white/50">Menü</div>
+          <ul className="mt-5 space-y-3 text-sm">
+            {NAV.map((n) => (
+              <li key={n.id}><a href={`#${n.id}`} className="transition hover:text-gold">{n.label}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <div className="text-xs font-medium uppercase tracking-widest text-white/50">Kontakt</div>
+          <ul className="mt-5 space-y-3 text-sm">
+            <li>Bahnhofstrasse 33</li>
+            <li>8600 Dübendorf</li>
+            <li><a href="tel:+41448213871" className="hover:text-gold">+41 44 821 38 71</a></li>
+          </ul>
+        </div>
+      </div>
+      <div className="border-t border-white/10">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 py-6 text-xs text-white/50 md:flex-row lg:px-10">
+          <span>© {new Date().getFullYear()} Hairbysonguel — Alle Rechte vorbehalten.</span>
+          <span>Made with care in Dübendorf</span>
+        </div>
+      </div>
+    </footer>
   );
 }
