@@ -95,7 +95,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@type": "HairSalon",
           name: "Hairbysonguel",
           image: "https://id-preview--4514c27d-a18d-4b9b-99d6-0b9d917bda2c.lovable.app/og.jpg",
-          telephone: "+41 44 821 38 71",
+          telephone: "+41 76 722 95 19",
           address: {
             "@type": "PostalAddress",
             streetAddress: "Bahnhofstrasse 33",

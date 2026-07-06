@@ -470,7 +470,7 @@ function Contact() {
 
             <div className="mt-10 space-y-5">
               <ContactRow icon={MapPin} label="Bahnhofstrasse 33, 8600 Dübendorf" href="https://maps.google.com/?q=Bahnhofstrasse+33+8600+Dübendorf" />
-              <ContactRow icon={Phone} label="+41 44 821 38 71" href="tel:+41448213871" />
+              <ContactRow icon={Phone} label="+41 76 722 95 19" href="tel:+41767229519" />
               <ContactRow icon={Mail} label="hallo@hairbysonguel.ch" href="mailto:hallo@hairbysonguel.ch" />
               <ContactRow icon={Instagram} label="@hairbysonguel" href="https://instagram.com/hairbysonguel" />
             </div>
@@ -611,7 +611,7 @@ function Footer() {
           <ul className="mt-5 space-y-3 text-sm">
             <li>Bahnhofstrasse 33</li>
             <li>8600 Dübendorf</li>
-            <li><a href="tel:+41448213871" className="hover:text-gold">+41 44 821 38 71</a></li>
+            <li><a href="tel:+41767229519" className="hover:text-gold">+41 76 722 95 19</a></li>
           </ul>
         </div>
       </div>
