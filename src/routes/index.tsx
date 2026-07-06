@@ -21,6 +21,7 @@ export const Route = createFileRoute("/")({
 const NAV = [
   { id: "home", label: "Home" },
   { id: "services", label: "Dienstleistungen" },
+  { id: "preise", label: "Preise" },
   { id: "gallery", label: "Galerie" },
   { id: "about", label: "Über uns" },
   { id: "contact", label: "Kontakt" },
@@ -43,6 +44,7 @@ function Home() {
       <main id="main">
         <Hero />
         <Services />
+        <Preise />
         <About />
         <Gallery />
         <Testimonials />
@@ -258,7 +260,108 @@ function Services() {
   );
 }
 
-/* ---------------- ABOUT ---------------- */
+/* ---------------- PREISE ---------------- */
+const PRICE_GROUPS = [
+  {
+    title: "Color Services",
+    items: [
+      { name: "Balayage Paket Kurz Haar", price: "220.–" },
+      { name: "Balayage Paket Langhaar", price: "280.–" },
+      { name: "Komplett Farbe", price: "95.–" },
+      { name: "Ansatz Färben", price: "65.–" },
+      { name: "Tönung", price: "45.–" },
+      { name: "Tönung + Styling", price: "100.–" },
+      { name: "Extension Haarverlängerung", price: "ab 390.–" },
+    ],
+  },
+  {
+    title: "Schneiden & Styling",
+    items: [
+      { name: "Langhaar", note: "Waschen, Schneiden & Föhnen", price: "85.–" },
+      { name: "Kurzhaar", note: "Waschen, Schneiden & Föhnen", price: "65.–" },
+    ],
+  },
+  {
+    title: "Styling",
+    items: [
+      { name: "Langhaar", note: "Waschen & Föhnen", price: "55.–" },
+      { name: "Kurzhaar", note: "Waschen & Föhnen", price: "45.–" },
+    ],
+  },
+  {
+    title: "Zusatzleistungen",
+    items: [
+      { name: "Hochzeitsfrisur", price: "350.–" },
+      { name: "Hochzeitsgäste Styling", price: "80.–" },
+      { name: "Augenbrauen Zupfen / Formen", price: "20.–" },
+    ],
+  },
+];
+
+function Preise() {
+  return (
+    <section id="preise" className="relative overflow-hidden bg-blush/50 py-28 lg:py-40">
+      <div className="pointer-events-none absolute -left-40 top-20 size-[500px] rounded-full bg-white/50 blur-3xl" />
+      <div className="pointer-events-none absolute -right-32 bottom-0 size-[420px] rounded-full bg-gold/10 blur-3xl" />
+      <div className="relative mx-auto max-w-6xl px-6 lg:px-10">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="eyebrow justify-center">Preisliste</span>
+          <h2 className="mt-5 font-display text-4xl tracking-tight text-ink sm:text-5xl lg:text-6xl">
+            Transparente <em className="text-gold">Preise</em>.
+          </h2>
+          <p className="mt-6 text-ink/70">
+            Alle Preise in CHF. Individuelle Behandlungen können abweichen — wir beraten Sie gerne.
+          </p>
+        </div>
+
+        <div className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-2">
+          {PRICE_GROUPS.map((group) => (
+            <div
+              key={group.title}
+              className="rounded-3xl border border-black/[0.04] bg-white/80 p-8 backdrop-blur-sm shadow-[0_20px_60px_-30px_rgba(46,46,46,0.2)] sm:p-10"
+            >
+              <div className="flex items-center justify-center gap-4">
+                <span className="h-px w-8 bg-gold" />
+                <h3 className="font-display text-xl uppercase tracking-[0.28em] text-ink">
+                  {group.title}
+                </h3>
+                <span className="h-px w-8 bg-gold" />
+              </div>
+              <ul className="mt-8 space-y-5">
+                {group.items.map((item) => (
+                  <li key={item.name} className="flex items-baseline gap-4">
+                    <div className="min-w-0 flex-1">
+                      <div className="text-sm font-medium uppercase tracking-wider text-ink">
+                        {item.name}
+                      </div>
+                      {"note" in item && item.note && (
+                        <div className="mt-0.5 text-xs text-ink/55">– {item.note}</div>
+                      )}
+                    </div>
+                    <span
+                      className="flex-1 border-b border-dashed border-ink/15"
+                      aria-hidden="true"
+                    />
+                    <div className="font-display text-lg text-gold whitespace-nowrap">
+                      {item.price}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-14 text-center">
+          <a href="#contact" className="btn-primary">
+            Termin anfragen <ArrowUpRight className="size-4" />
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function About() {
   return (
     <section id="about" className="relative overflow-hidden bg-blush/60 py-28 lg:py-40">
