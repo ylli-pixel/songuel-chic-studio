@@ -21,6 +21,7 @@ export const Route = createFileRoute("/")({
 const NAV = [
   { id: "home", label: "Home" },
   { id: "services", label: "Dienstleistungen" },
+  { id: "preise", label: "Preise" },
   { id: "gallery", label: "Galerie" },
   { id: "about", label: "Über uns" },
   { id: "contact", label: "Kontakt" },
