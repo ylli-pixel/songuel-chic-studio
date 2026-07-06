@@ -334,7 +334,7 @@ function Preise() {
                       <div className="text-sm font-medium uppercase tracking-wider text-ink">
                         {item.name}
                       </div>
-                      {item.note && (
+                      {"note" in item && item.note && (
                         <div className="mt-0.5 text-xs text-ink/55">– {item.note}</div>
                       )}
                     </div>
