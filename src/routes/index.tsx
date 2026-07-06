@@ -494,21 +494,46 @@ function Contact() {
           {/* Right: form + map */}
           <div className="lg:col-span-7">
             <form
-              onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+              onSubmit={(e) => {
+                e.preventDefault();
+                const fd = new FormData(e.currentTarget);
+                const name = String(fd.get("name") ?? "").trim();
+                const phone = String(fd.get("phone") ?? "").trim();
+                const email = String(fd.get("email") ?? "").trim();
+                const service = String(fd.get("service") ?? "");
+                const message = String(fd.get("message") ?? "").trim();
+                const text = [
+                  "Hallo, ich möchte gerne einen Termin vereinbaren.",
+                  "",
+                  `Name: ${name}`,
+                  `Telefon: ${phone}`,
+                  email ? `E-Mail: ${email}` : "",
+                  `Behandlung: ${service}`,
+                  message ? `Nachricht: ${message}` : "",
+                ].filter(Boolean).join("%0A");
+                window.open(`https://wa.me/41767229519?text=${text}`, "_blank", "noopener,noreferrer");
+                setSent(true);
+              }}
               className="rounded-[2rem] border border-black/[0.05] bg-white p-8 shadow-[0_30px_80px_-40px_rgba(46,46,46,0.25)] sm:p-10"
             >
-              <h3 className="font-display text-2xl text-ink">Termin anfragen</h3>
-              <p className="mt-2 text-sm text-ink/60">Wir melden uns innerhalb von 24 Stunden.</p>
+              <div className="flex items-center gap-3">
+                <h3 className="font-display text-2xl text-ink">Termin anfragen</h3>
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-green-50 px-3 py-1 text-xs font-medium text-green-700">
+                  <WhatsAppIcon className="size-3.5" />
+                  via WhatsApp
+                </span>
+              </div>
+              <p className="mt-2 text-sm text-ink/60">Füllen Sie das Formular aus — Ihre Anfrage wird direkt per WhatsApp an uns gesendet.</p>
 
               <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <Field label="Name" name="name" required />
                 <Field label="Telefon" name="phone" type="tel" required />
-                <Field label="E-Mail" name="email" type="email" className="sm:col-span-2" required />
+                <Field label="E-Mail" name="email" type="email" className="sm:col-span-2" />
                 <div className="sm:col-span-2">
-                  <label className="mb-2 block text-xs font-medium uppercase tracking-widest text-ink/60">
+                  <label htmlFor="service" className="mb-2 block text-xs font-medium uppercase tracking-widest text-ink/60">
                     Gewünschte Behandlung
                   </label>
-                  <select className="w-full rounded-2xl border border-ink/10 bg-cream px-5 py-4 text-sm outline-none transition focus:border-gold focus:bg-white">
+                  <select id="service" name="service" className="w-full rounded-2xl border border-ink/10 bg-cream px-5 py-4 text-sm outline-none transition focus:border-gold focus:bg-white">
                     <option>Haarschnitt</option>
                     <option>Balayage</option>
                     <option>Coloration</option>
@@ -518,8 +543,10 @@ function Contact() {
                   </select>
                 </div>
                 <div className="sm:col-span-2">
-                  <label className="mb-2 block text-xs font-medium uppercase tracking-widest text-ink/60">Nachricht</label>
+                  <label htmlFor="message" className="mb-2 block text-xs font-medium uppercase tracking-widest text-ink/60">Nachricht</label>
                   <textarea
+                    id="message"
+                    name="message"
                     rows={4}
                     className="w-full resize-none rounded-2xl border border-ink/10 bg-cream px-5 py-4 text-sm outline-none transition focus:border-gold focus:bg-white"
                     placeholder="Ihre Wünsche, bevorzugter Termin …"
@@ -528,7 +555,7 @@ function Contact() {
               </div>
 
               <button type="submit" className="btn-primary mt-8 w-full sm:w-auto">
-                {sent ? "Danke — wir melden uns!" : "Anfrage senden"}
+                {sent ? "WhatsApp wurde geöffnet" : "Termin via WhatsApp anfragen"}
                 <ArrowUpRight className="size-4" />
               </button>
             </form>
