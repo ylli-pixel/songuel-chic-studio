@@ -44,6 +44,7 @@ function Home() {
       <main id="main">
         <Hero />
         <Services />
+        <Preise />
         <About />
         <Gallery />
         <Testimonials />
