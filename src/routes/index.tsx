@@ -137,33 +137,48 @@ function Hero() {
       <div className="relative mx-auto grid min-h-[100svh] max-w-7xl grid-cols-1 items-center gap-12 px-6 pt-32 pb-20 lg:grid-cols-12 lg:gap-8 lg:px-10">
         {/* Copy */}
         <div className="lg:col-span-6 rise-in">
-          <span className="eyebrow">Coiffeur · Dübendorf</span>
-          <h1 className="mt-6 font-display text-[clamp(2.75rem,7vw,5.5rem)] leading-[1.02] tracking-tight text-ink">
-            Hair<span className="italic">by</span>
+          <span className="eyebrow">Coiffeur · Bahnhofstrasse 33 · Dübendorf</span>
+          <h1 className="mt-6 font-display text-[clamp(2.75rem,7.4vw,5.75rem)] leading-[1.02] tracking-tight text-ink">
+            Ihr Haar,
+            <span className="block italic text-ink/90">gemacht mit</span>
             <span className="block bg-gradient-to-r from-ink via-gold to-ink bg-[length:200%_auto] bg-clip-text text-transparent">
-              sonĝuel
+              Zeit &amp; Liebe.
             </span>
           </h1>
-          <p className="mt-8 max-w-lg text-lg leading-relaxed text-ink/70">
-            Professionelle Haarpflege, Balayage und Styling in Dübendorf —
-            mit Handwerk, Ruhe und einem Auge fürs Detail.
+          <p className="mt-8 max-w-lg text-lg leading-[1.7] text-ink/70">
+            Premium Coiffeur in Dübendorf — spezialisiert auf natürliche
+            <span className="font-medium text-ink"> Balayage</span>, präzise Schnitte
+            und ehrliche Beratung. Ohne Hektik, ohne Kompromisse.
           </p>
-          <div className="mt-10 flex flex-wrap items-center gap-4">
+          <div className="mt-10 flex flex-wrap items-center gap-3 sm:gap-4">
             <a href="#contact" className="btn-primary">
               Termin vereinbaren
               <ArrowUpRight className="size-4" />
             </a>
-            <a href="#services" className="btn-ghost">Dienstleistungen ansehen</a>
+            <a
+              href="https://wa.me/41767229519?text=Hallo%20Son%C4%9Fuel%2C%20ich%20m%C3%B6chte%20gerne%20einen%20Termin%20vereinbaren."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-whatsapp"
+            >
+              <WhatsAppIcon className="size-4" />
+              WhatsApp
+            </a>
+            <a href="tel:+41767229519" className="btn-ghost">
+              <Phone className="size-4" />
+              076 722 95 19
+            </a>
           </div>
 
-          <div className="mt-14 flex items-center gap-8 text-sm text-ink/70">
+          <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-ink/70">
             <div className="flex items-center gap-2">
               <div className="flex">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} className="size-4 fill-gold text-gold" />
                 ))}
               </div>
-              <span>5.0 · Google Bewertungen</span>
+              <span className="font-medium text-ink">5.0</span>
+              <span>· Google Bewertungen</span>
             </div>
             <div className="hidden h-6 w-px bg-ink/15 sm:block" />
             <span className="hidden sm:inline">15+ Jahre Erfahrung</span>
@@ -215,11 +230,11 @@ function Hero() {
 
 /* ---------------- SERVICES ---------------- */
 const SERVICES = [
-  { icon: Scissors, title: "Haarschnitt", desc: "Präzise Schnitte, die zu Ihrem Gesicht, Stil und Alltag passen — für Frauen, Männer und Kinder." },
-  { icon: Wand2, title: "Balayage", desc: "Handgemalte Highlights für einen natürlichen, sonnenverwöhnten Look mit weichen Übergängen." },
-  { icon: Palette, title: "Coloration", desc: "Von klassisch bis kreativ — schonende Colorationen mit hochwertigen Premium-Produkten." },
-  { icon: Sparkles, title: "Styling", desc: "Blowouts, Hochsteckfrisuren und Braut-Styling für jeden besonderen Anlass." },
-  { icon: Heart, title: "Beauty", desc: "Augenbrauen, Wimpern und pflegende Treatments — kleine Rituale für einen strahlenden Auftritt." },
+  { icon: Scissors, title: "Haarschnitt", desc: "Ein Schnitt, der zu Ihrem Gesicht, Ihrem Alltag und Ihrem Charakter passt — nicht zum letzten Trend." },
+  { icon: Wand2, title: "Balayage", desc: "Von Hand gemalte Highlights für einen sonnenverwöhnten Look mit weichen Übergängen. Herauswachsen ohne harten Ansatz." },
+  { icon: Palette, title: "Coloration", desc: "Schonende Farben aus Premium-Linien — kräftig, natürlich oder ganz Sie selbst. Auch bei empfindlicher Kopfhaut." },
+  { icon: Sparkles, title: "Styling & Braut", desc: "Blowouts, Hochsteckfrisuren und Brautstylings, die den ganzen Abend sitzen — bis zum letzten Tanz." },
+  { icon: Heart, title: "Beauty", desc: "Augenbrauen, Wimpern und pflegende Rituale — die kleinen Details, die den Blick zum Strahlen bringen." },
 ];
 
 function Services() {
@@ -229,13 +244,13 @@ function Services() {
         <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-end">
           <div className="max-w-2xl">
             <span className="eyebrow">Dienstleistungen</span>
-            <h2 className="mt-5 font-display text-4xl tracking-tight text-ink sm:text-5xl lg:text-6xl">
-              Handwerk, das <em className="text-gold">Schönheit</em> spürbar macht.
+            <h2 className="mt-5 font-display text-4xl leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl">
+              Handwerk, das <em className="not-italic text-gold">Schönheit</em> spürbar macht.
             </h2>
           </div>
-          <p className="max-w-md text-ink/70">
-            Jede Behandlung beginnt mit einer persönlichen Beratung — damit das Ergebnis
-            genau so wird, wie Sie es sich vorstellen.
+          <p className="max-w-md text-lg leading-[1.7] text-ink/70">
+            Jede Behandlung beginnt mit einem echten Gespräch — damit das Ergebnis
+            nicht nur schön aussieht, sondern sich auch nach Ihnen anfühlt.
           </p>
         </div>
 
@@ -271,8 +286,8 @@ const PRICE_GROUPS = [
   {
     title: "Color Services",
     items: [
-      { name: "Balayage Paket Kurz Haar", price: "220.–" },
-      { name: "Balayage Paket Langhaar", price: "280.–" },
+      { name: "Balayage Paket Kurz Haar", price: "220.–", featured: true },
+      { name: "Balayage Paket Langhaar", price: "280.–", featured: true },
       { name: "Komplett Farbe", price: "95.–" },
       { name: "Ansatz Färben", price: "65.–" },
       { name: "Tönung", price: "45.–" },
@@ -334,25 +349,35 @@ function Preise() {
                 <span className="h-px w-8 bg-gold" />
               </div>
               <ul className="mt-8 space-y-5">
-                {group.items.map((item) => (
-                  <li key={item.name} className="flex items-baseline gap-4">
-                    <div className="min-w-0 flex-1">
-                      <div className="text-sm font-medium uppercase tracking-wider text-ink">
-                        {item.name}
+                {group.items.map((item) => {
+                  const featured = "featured" in item && item.featured;
+                  return (
+                    <li key={item.name} className="flex items-baseline gap-4">
+                      <div className="min-w-0 flex-1">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <div className={`text-sm uppercase tracking-wider ${featured ? "font-semibold text-ink" : "font-medium text-ink"}`}>
+                            {item.name}
+                          </div>
+                          {featured && (
+                            <span className="rounded-full bg-gold/15 px-2 py-0.5 text-[10px] font-medium uppercase tracking-widest text-gold">
+                              Signature
+                            </span>
+                          )}
+                        </div>
+                        {"note" in item && item.note && (
+                          <div className="mt-0.5 text-xs text-ink/55">– {item.note}</div>
+                        )}
                       </div>
-                      {"note" in item && item.note && (
-                        <div className="mt-0.5 text-xs text-ink/55">– {item.note}</div>
-                      )}
-                    </div>
-                    <span
-                      className="flex-1 border-b border-dashed border-ink/15"
-                      aria-hidden="true"
-                    />
-                    <div className="font-display text-lg text-gold whitespace-nowrap">
-                      {item.price}
-                    </div>
-                  </li>
-                ))}
+                      <span
+                        className="flex-1 border-b border-dashed border-ink/15"
+                        aria-hidden="true"
+                      />
+                      <div className={`font-display whitespace-nowrap ${featured ? "text-xl text-ink" : "text-lg text-gold"}`}>
+                        {item.price}
+                      </div>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
@@ -394,24 +419,28 @@ function About() {
         </div>
 
         <div className="lg:col-span-6">
-          <span className="eyebrow">Über uns</span>
-          <h2 className="mt-5 font-display text-4xl tracking-tight text-ink sm:text-5xl lg:text-6xl">
-            Ein Salon, in dem Sie <em className="text-gold">ankommen</em> dürfen.
+          <span className="eyebrow">Über Sonĝuel</span>
+          <h2 className="mt-5 font-display text-4xl leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl">
+            Ein Salon, in dem Sie <em className="not-italic text-gold">ankommen</em> dürfen.
           </h2>
-          <div className="mt-8 space-y-5 text-ink/75 leading-relaxed">
+          <div className="mt-8 space-y-5 text-[1.05rem] leading-[1.75] text-ink/75">
             <p>
-              Hairbysonguel ist mehr als ein Coiffeur — es ist ein ruhiger Ort mitten
-              in Dübendorf, an dem Handwerk, Zeit und persönliche Beratung im Mittelpunkt stehen.
+              „Für mich ist Coiffeur mehr als nur Haare schneiden. Ich nehme mir
+              Zeit, höre zu und schaue genau hin — denn Ihr Look soll zu Ihrem
+              Leben passen, nicht umgekehrt."
             </p>
             <p>
-              Mit Leidenschaft für Balayage, natürliche Farbnuancen und individuelle Schnitte
-              begleiten wir unsere Kundinnen seit über 15 Jahren. Jede Behandlung wird
-              sorgfältig auf Sie, Ihre Haarstruktur und Ihren Alltag abgestimmt.
+              Seit über 15 Jahren begleite ich Kundinnen mit Leidenschaft für
+              Balayage, feine Farbnuancen und Schnitte, die mitwachsen. Jede
+              Behandlung ist auf Ihre Haarstruktur, Ihren Alltag und Ihre
+              Wünsche abgestimmt — ganz ohne Standardrezept.
             </p>
             <p>
-              Wir arbeiten ausschliesslich mit hochwertigen, schonenden Produkten — für ein
-              Ergebnis, das nicht nur heute, sondern auch morgen strahlt.
+              In meinem Salon an der Bahnhofstrasse arbeite ich ausschliesslich
+              mit hochwertigen, veganen Produkten. Für ein Ergebnis, das nicht
+              nur heute schön ist, sondern auch morgen noch gesund glänzt.
             </p>
+            <p className="font-display text-lg italic text-ink">— Sonĝuel</p>
           </div>
 
           <div className="mt-10 grid grid-cols-3 gap-6 border-t border-ink/10 pt-8">
@@ -526,28 +555,32 @@ function Testimonials() {
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
         <div className="mx-auto max-w-3xl text-center">
           <span className="eyebrow" style={{ color: "var(--color-gold)" }}>Stimmen</span>
-          <h2 className="mt-5 font-display text-4xl tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Was unsere Kundinnen sagen
+          <h2 className="mt-5 font-display text-4xl leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+            Was Kundinnen erleben.
           </h2>
+          <p className="mt-6 text-white/70 leading-[1.7]">
+            Ehrliche Worte aus unserem Salon — mehr sagen wir gar nicht.
+          </p>
         </div>
 
         <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
           {REVIEWS.map((r) => (
             <figure
               key={r.name}
-              className="relative rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-lg transition-all duration-500 hover:-translate-y-1 hover:bg-white/10"
+              className="group relative rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-lg transition-all duration-500 hover:-translate-y-1 hover:border-gold/30 hover:bg-white/[0.08]"
             >
+              <span aria-hidden className="absolute -top-4 left-6 font-display text-7xl leading-none text-gold/60 select-none">“</span>
               <div className="flex gap-1">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} className="size-4 fill-gold text-gold" />
                 ))}
               </div>
-              <blockquote className="mt-6 font-display text-xl italic leading-relaxed text-white/90">
-                “{r.quote}”
+              <blockquote className="mt-6 font-display text-[1.15rem] italic leading-[1.65] text-white/90">
+                {r.quote}
               </blockquote>
               <figcaption className="mt-8 border-t border-white/10 pt-5">
-                <div className="text-sm font-medium text-white">{r.name}</div>
-                <div className="text-xs uppercase tracking-widest text-white/50">{r.role}</div>
+                <div className="font-display text-base text-white">{r.name}</div>
+                <div className="mt-1 text-[11px] uppercase tracking-[0.22em] text-white/50">{r.role}</div>
               </figcaption>
             </figure>
           ))}
@@ -577,17 +610,31 @@ function Contact() {
           {/* Left: info */}
           <div className="lg:col-span-5">
             <span className="eyebrow">Kontakt</span>
-            <h2 className="mt-5 font-display text-4xl tracking-tight text-ink sm:text-5xl lg:text-6xl">
-              Wir freuen uns auf Sie.
+            <h2 className="mt-5 font-display text-4xl leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl">
+              Wir freuen uns <em className="not-italic text-gold">auf Sie</em>.
             </h2>
-            <p className="mt-6 max-w-md text-ink/70">
-              Vereinbaren Sie einen Termin oder besuchen Sie uns direkt an der
-              Bahnhofstrasse 33 in Dübendorf.
+            <p className="mt-6 max-w-md text-lg leading-[1.7] text-ink/70">
+              Am schnellsten geht’s per WhatsApp — meist antworten wir innerhalb weniger Stunden.
             </p>
 
-            <div className="mt-10 space-y-5">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <a
+                href="https://wa.me/41767229519?text=Hallo%20Son%C4%9Fuel%2C%20ich%20m%C3%B6chte%20gerne%20einen%20Termin%20vereinbaren."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-whatsapp"
+              >
+                <WhatsAppIcon className="size-4" />
+                Termin via WhatsApp
+              </a>
+              <a href="tel:+41767229519" className="btn-ghost">
+                <Phone className="size-4" />
+                076 722 95 19
+              </a>
+            </div>
+
+            <div className="mt-10 space-y-4">
               <ContactRow icon={MapPin} label="Bahnhofstrasse 33, 8600 Dübendorf" href="https://maps.google.com/?q=Bahnhofstrasse+33+8600+Dübendorf" />
-              <ContactRow icon={Phone} label="+41 76 722 95 19" href="tel:+41767229519" />
               <ContactRow icon={Mail} label="hallo@hairbysonguel.ch" href="mailto:hallo@hairbysonguel.ch" />
               <ContactRow icon={Instagram} label="@hairbysonguel" href="https://instagram.com/hairbysonguel" />
             </div>
