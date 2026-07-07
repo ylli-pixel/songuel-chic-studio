@@ -817,7 +817,11 @@ function Footer() {
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 py-6 text-xs text-white/50 md:flex-row lg:px-10">
           <span>© {new Date().getFullYear()} Hairbysonguel — Alle Rechte vorbehalten.</span>
-          <span>Made with care in Dübendorf</span>
+          <div className="flex items-center gap-5">
+            <Link to="/impressum" className="transition hover:text-gold">Impressum</Link>
+            <Link to="/datenschutz" className="transition hover:text-gold">Datenschutz</Link>
+          </div>
+        </div>
         </div>
       </div>
     </footer>
