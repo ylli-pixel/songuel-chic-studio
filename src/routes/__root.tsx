@@ -56,7 +56,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
     <div className="flex min-h-screen items-center justify-center bg-cream px-4">
       <div className="max-w-md text-center">
         <h1 className="font-display text-2xl text-ink">Etwas ist schiefgelaufen</h1>
-        <p className="mt-2 text-sm text-muted-foreground">
+        <p className="mt-2 text-sm text-ink">
           Bitte versuchen Sie es erneut oder kehren Sie zur Startseite zurück.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
