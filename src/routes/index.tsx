@@ -329,7 +329,7 @@ function Hero() {
               alt="Elegante Frau mit gepflegter Balayage-Frisur im Salon Hairbysonguel in Dübendorf"
               width={1600}
               height={1800}
-              fetchpriority="high"
+              fetchPriority="high"
               className="size-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/10 via-transparent to-transparent" />
