@@ -5,15 +5,16 @@ import {
   Instagram, Clock, Mail, ArrowUpRight, Menu, X,
 } from "lucide-react";
 
-import heroAsset from "@/assets/about-songuel.jpeg.asset.json";
+import heroAsset from "@/assets/hero-real.jpg.asset.json";
+import gallery1Asset from "@/assets/gallery-1.jpg.asset.json";
+import gallery2Asset from "@/assets/gallery-2.jpg.asset.json";
+import gallery3Asset from "@/assets/gallery-3.jpg.asset.json";
 const hero = heroAsset.url;
-import about from "@/assets/about.jpg";
-import g1 from "@/assets/g1.jpg";
-import g2 from "@/assets/g2.jpg";
-import g3 from "@/assets/g3.jpg";
-import g4 from "@/assets/g4.jpg";
-import g5 from "@/assets/g5.jpg";
-import g6 from "@/assets/g6.jpg";
+const about = gallery1Asset.url;
+const g1 = heroAsset.url;
+const g2 = gallery2Asset.url;
+const g3 = gallery3Asset.url;
+const g4 = gallery1Asset.url;
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -426,12 +427,10 @@ function About() {
 
 /* ---------------- GALLERY ---------------- */
 const GALLERY = [
-  { src: g1, alt: "Balayage-Highlights mit weichen Übergängen", span: "row-span-2" },
-  { src: g2, alt: "Glänzende brünette Haare mit sanften Wellen", span: "" },
-  { src: g5, alt: "Karamellfarbene Balayage in Bewegung", span: "row-span-2" },
-  { src: g3, alt: "Detail: Coloration im Salon", span: "" },
-  { src: g4, alt: "Elegante Hochsteckfrisur für Braut-Styling", span: "" },
-  { src: g6, alt: "Premium-Haarpflegeprodukte auf Marmortheke", span: "" },
+  { src: g1, alt: "Blondes Balayage mit weichen Übergängen", span: "row-span-2" },
+  { src: g2, alt: "Extensions & dunkle Locken — Handwerk im Detail", span: "" },
+  { src: g3, alt: "Langes Balayage mit natürlichem Verlauf", span: "row-span-2" },
+  { src: g4, alt: "Dichte Locken mit warmen Reflexen", span: "" },
 ];
 
 function Gallery() {
