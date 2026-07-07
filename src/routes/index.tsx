@@ -610,17 +610,31 @@ function Contact() {
           {/* Left: info */}
           <div className="lg:col-span-5">
             <span className="eyebrow">Kontakt</span>
-            <h2 className="mt-5 font-display text-4xl tracking-tight text-ink sm:text-5xl lg:text-6xl">
-              Wir freuen uns auf Sie.
+            <h2 className="mt-5 font-display text-4xl leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl">
+              Wir freuen uns <em className="not-italic text-gold">auf Sie</em>.
             </h2>
-            <p className="mt-6 max-w-md text-ink/70">
-              Vereinbaren Sie einen Termin oder besuchen Sie uns direkt an der
-              Bahnhofstrasse 33 in Dübendorf.
+            <p className="mt-6 max-w-md text-lg leading-[1.7] text-ink/70">
+              Am schnellsten geht’s per WhatsApp — meist antworten wir innerhalb weniger Stunden.
             </p>
 
-            <div className="mt-10 space-y-5">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <a
+                href="https://wa.me/41767229519?text=Hallo%20Son%C4%9Fuel%2C%20ich%20m%C3%B6chte%20gerne%20einen%20Termin%20vereinbaren."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-whatsapp"
+              >
+                <WhatsAppIcon className="size-4" />
+                Termin via WhatsApp
+              </a>
+              <a href="tel:+41767229519" className="btn-ghost">
+                <Phone className="size-4" />
+                076 722 95 19
+              </a>
+            </div>
+
+            <div className="mt-10 space-y-4">
               <ContactRow icon={MapPin} label="Bahnhofstrasse 33, 8600 Dübendorf" href="https://maps.google.com/?q=Bahnhofstrasse+33+8600+Dübendorf" />
-              <ContactRow icon={Phone} label="+41 76 722 95 19" href="tel:+41767229519" />
               <ContactRow icon={Mail} label="hallo@hairbysonguel.ch" href="mailto:hallo@hairbysonguel.ch" />
               <ContactRow icon={Instagram} label="@hairbysonguel" href="https://instagram.com/hairbysonguel" />
             </div>
