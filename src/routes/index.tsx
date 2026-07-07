@@ -244,13 +244,13 @@ function Services() {
         <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-end">
           <div className="max-w-2xl">
             <span className="eyebrow">Dienstleistungen</span>
-            <h2 className="mt-5 font-display text-4xl tracking-tight text-ink sm:text-5xl lg:text-6xl">
-              Handwerk, das <em className="text-gold">Schönheit</em> spürbar macht.
+            <h2 className="mt-5 font-display text-4xl leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl">
+              Handwerk, das <em className="not-italic text-gold">Schönheit</em> spürbar macht.
             </h2>
           </div>
-          <p className="max-w-md text-ink/70">
-            Jede Behandlung beginnt mit einer persönlichen Beratung — damit das Ergebnis
-            genau so wird, wie Sie es sich vorstellen.
+          <p className="max-w-md text-lg leading-[1.7] text-ink/70">
+            Jede Behandlung beginnt mit einem echten Gespräch — damit das Ergebnis
+            nicht nur schön aussieht, sondern sich auch nach Ihnen anfühlt.
           </p>
         </div>
 
