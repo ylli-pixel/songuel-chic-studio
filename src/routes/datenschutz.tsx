@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
+import { url } from "@/lib/seo";
 
 export const Route = createFileRoute("/datenschutz")({
   head: () => ({
@@ -9,7 +10,9 @@ export const Route = createFileRoute("/datenschutz")({
       { name: "robots", content: "noindex, follow" },
       { property: "og:title", content: "Datenschutz — Hairbysonguel" },
       { property: "og:description", content: "Wie wir mit Ihren Daten umgehen." },
+      { property: "og:url", content: url("/datenschutz") },
     ],
+    links: [{ rel: "canonical", href: url("/datenschutz") }],
   }),
   component: DatenschutzPage,
 });
