@@ -1,72 +1,44 @@
-# Launch-Vorbereitung: Rechtliches & Favicon
+## Plan: SEO-Fundament ohne Domain
 
-Bevor die Seite an eine echte Kundin ausgeliefert wird, brauchen wir die Schweizer Pflichtangaben und ein eigenes Favicon. Ohne diese Punkte darf die Seite kommerziell nicht live gehen.
+Alles was wir ohne finale Domain schon sauber vorbereiten können. Sobald die Kundin die Domain hat, müssen wir nur noch `BASE_URL` an einer Stelle tauschen.
 
-## Was wir bauen
+### 1. Technische SEO-Basis
+- **`public/robots.txt`** anlegen (`User-agent: *` / `Allow: /`, Sitemap-Verweis auf Lovable-URL, später leicht austauschbar).
+- **`src/routes/sitemap[.]xml.ts`** als Server-Route mit allen aktuellen Seiten: `/`, `/impressum`, `/datenschutz`, `/blog`, `/blog/balayage-pflege`.
+- **`public/llms.txt`** für ChatGPT/Perplexity/Claude (Kurzbeschreibung Salon, Services, Standort, Kontakt).
 
-### 1. Impressum-Seite (`/impressum`)
-Eigene Route mit:
-- Firmenname / Inhaberin: **Sonĝuel [Nachname]**
-- Adresse: Bahnhofstrasse 33, 8600 Dübendorf
-- Kontakt: Telefon, E-Mail
-- Optional: UID-Nummer (CHE-...), Handelsregister
-- Verantwortlich für den Inhalt: Sonĝuel [Nachname]
-- Haftungsausschluss (Links, Inhalte)
+### 2. Per-Route Head-Metadaten
+Jede Route bekommt eigenen `head()` mit `title`, `description`, `canonical`, `og:url`, `og:title`, `og:description`, `og:type`:
+- `src/routes/index.tsx` — Fokus-Keywords „Coiffeur Dübendorf", „Balayage", „Hairbysonguel"
+- `src/routes/impressum.tsx` — `noindex` (rechtliche Seite, keine SEO-Konkurrenz nötig? → wir lassen indexierbar, nur eigener Title)
+- `src/routes/datenschutz.tsx` — eigener Title + Description
+- `src/routes/__root.tsx` — nur sitewide Defaults (og:site_name, og:type website, Organization JSON-LD)
 
-### 2. Datenschutzerklärung (`/datenschutz`)
-Eigene Route mit klarem, DSG-konformem Text (Schweizer Datenschutzgesetz + Hinweis auf DSGVO für EU-Besucherinnen):
-- Verantwortliche Stelle
-- Welche Daten erhoben werden (Kontaktformular → WhatsApp-Weiterleitung)
-- Verwendung von Google Maps (Einbettung + Datenübertragung an Google)
-- Instagram-Verlinkung
-- Server-Logs / Hosting (Lovable)
-- Cookies (aktuell keine Tracking-Cookies, nur technisch nötige)
-- Rechte der Nutzerinnen (Auskunft, Löschung, Berichtigung)
-- Kontakt für Datenschutzanfragen
+### 3. Strukturierte Daten (JSON-LD)
+Auf der Startseite `LocalBusiness` / `HairSalon` Schema:
+- Name, Adresse (Bahnhofstrasse 33, 8600 Dübendorf), Geo, Öffnungszeiten, Telefon, Preisrange, Services, Instagram/WhatsApp als `sameAs`.
+- Das ist der stärkste Hebel für lokale Google-Ergebnisse und Google Maps.
 
-### 3. Cookie-Hinweis (dezenter Banner)
-Kleiner eleganter Banner unten rechts, passend zum Design:
-- Kurzer Text: „Diese Website nutzt Google Maps und speichert Einstellungen lokal. Mehr Infos in der Datenschutzerklärung."
-- Ein Button: „Verstanden"
-- Speichert Zustimmung in `localStorage`
-- Erscheint nur beim ersten Besuch
+### 4. Startseite polieren (SEO + A11y)
+- H1 erweitern zu etwas Beschreibendem wie „Hairbysonguel — Coiffeur & Balayage-Spezialistin in Dübendorf" (visuell bleibt der Look gleich, nur der Textinhalt ändert sich).
+- `aria-label` auf Icon-only Links (Instagram, WhatsApp, Telefon).
+- Bilder-Alt-Tags nochmal auf Keywords prüfen.
 
-### 4. Footer-Links ergänzen
-Im bestehenden Footer:
-- Link zu `/impressum`
-- Link zu `/datenschutz`
-- Diskret aber sichtbar unten
+### 5. Blog-Grundgerüst + erster Artikel
+- **`src/routes/blog.tsx`** — schlichte Blog-Übersichtsseite im gleichen Premium-Look (Serif, Blush, Gold).
+- **`src/routes/blog.balayage-pflege.tsx`** — erster Artikel „Balayage richtig pflegen: 7 Tipps von deiner Coiffeuse in Dübendorf" (Semrush: niedriger Wettbewerb, echtes Suchvolumen).
+- Article-JSON-LD, eigener `head()`, interne Verlinkung zur Startseite und WhatsApp-CTA am Ende.
+- Footer-Link auf Blog ergänzen.
 
-### 5. Eigenes Favicon
-- Elegantes „H" oder „hs"-Monogramm in Blush/Gold, passend zum Branding
-- Als PNG (`public/favicon.png`) generiert
-- In `__root.tsx` eingebunden, alte `favicon.ico` wird gelöscht
-- Zusätzlich `apple-touch-icon` für iPhone-Homescreen
+### 6. Was NICHT jetzt passiert (Kundin-Block)
+- Custom Domain in `BASE_URL` eintragen
+- Google Search Console + Google Business Profile verknüpfen
+- Echte Business-E-Mail bestätigen
+- Platzhalter im Impressum füllen
 
-### 6. 404-Seite polieren
-Die bestehende NotFound-Komponente in `__root.tsx` bekommt den gleichen Premium-Look wie die Hauptseite (Serif-Headline, Blush-Hintergrund, sanfte Animation, Button zurück zur Startseite und WhatsApp-Kontakt).
+### Technisches
+- Alle Head-Tags nach TanStack-Pattern (Title im `meta`-Array, Canonical nur auf Leaf-Routes).
+- `BASE_URL` als eine Konstante in `src/lib/seo.ts` — später ein Wert zu ändern reicht.
+- Sitemap als Server-Route, damit sie sich automatisch mit neuen Routen erweitern lässt.
 
-## Was ich von dir brauche (bevor ich baue)
-
-Bitte diese 4 Infos in einer Nachricht schicken:
-
-1. **Vollständiger Nachname von Sonĝuel** (für Impressum)
-2. **Offizielle E-Mail-Adresse** (existiert `hallo@hairbysonguel.ch`? Falls nein: welche verwenden?)
-3. **Rechtsform** — Einzelfirma, GmbH oder andere? (Falls GmbH: UID/Handelsregister-Nr.)
-4. **Favicon-Stil**: „H" allein, „HS", oder eine kleine Schere/Blüte als Icon?
-
-## Technische Details
-
-- Route-Files: `src/routes/impressum.tsx` und `src/routes/datenschutz.tsx` (TanStack file-based routing)
-- Jede Route mit eigenem `head()` (Title, Description, `robots: noindex, follow` für Impressum/Datenschutz — Standardpraxis)
-- Cookie-Banner als eigene Komponente `src/components/CookieBanner.tsx`, in `__root.tsx` gemountet
-- Favicon per `imagegen--generate_image` (transparenter Hintergrund, quadratisch)
-- 404-Redesign direkt in `__root.tsx` (NotFoundComponent)
-
-## Was NICHT dazugehört (kommt in späteren Tickets)
-- Vorher/Nachher-Galerie
-- Online-Booking-Integration
-- Blog / FAQ
-- Google Analytics
-
-Sag mir kurz Bescheid mit den 4 Infos oben, dann setze ich alles in einem Rutsch um.
+Passt das so, oder soll ich den Blog erstmal weglassen und mich nur auf reine SEO-Basics konzentrieren?

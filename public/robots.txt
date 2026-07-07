@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://songuel-chic-studio.lovable.app/sitemap.xml

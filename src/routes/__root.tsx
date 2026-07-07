@@ -92,11 +92,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: SITE_TITLE },
       { name: "twitter:description", content: SITE_DESC },
-      { property: "og:image", content: "https://songuel-chic-studio.lovable.app/__l5e/assets-v1/79c45a01-2647-4a34-bb60-ff7803ddd457/og-image.jpg" },
-      { property: "og:image:width", content: "1200" },
-      { property: "og:image:height", content: "630" },
-      { name: "twitter:image", content: "https://songuel-chic-studio.lovable.app/__l5e/assets-v1/79c45a01-2647-4a34-bb60-ff7803ddd457/og-image.jpg" },
-
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -115,8 +110,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "HairSalon",
+          "@id": "https://songuel-chic-studio.lovable.app/#salon",
           name: "Hairbysonguel",
-          image: "https://id-preview--4514c27d-a18d-4b9b-99d6-0b9d917bda2c.lovable.app/og.jpg",
+          url: "https://songuel-chic-studio.lovable.app/",
+          image: "https://songuel-chic-studio.lovable.app/__l5e/assets-v1/79c45a01-2647-4a34-bb60-ff7803ddd457/og-image.jpg",
           telephone: "+41 76 722 95 19",
           address: {
             "@type": "PostalAddress",
@@ -125,7 +122,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             addressLocality: "Dübendorf",
             addressCountry: "CH",
           },
+          areaServed: ["Dübendorf", "Zürich", "Wallisellen", "Volketswil"],
           priceRange: "$$",
+          sameAs: ["https://instagram.com/hairbysonguel"],
           openingHoursSpecification: [
             { "@type": "OpeningHoursSpecification", dayOfWeek: ["Tuesday","Wednesday","Friday"], opens: "09:00", closes: "18:30" },
             { "@type": "OpeningHoursSpecification", dayOfWeek: "Thursday", opens: "09:00", closes: "20:00" },
