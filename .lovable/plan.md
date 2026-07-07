@@ -1,36 +1,23 @@
-## Plan: Echte Salon-Fotos einbinden
+## Status Bilder
 
-### Was ich mit den 4 hochgeladenen Bildern mache
+Alle sichtbaren Bildplätze auf der Website sind mit echten Fotos gefüllt:
+- **Hero** — Balayage-Arbeit
+- **About** — Portrait von Sonĝuel mit Kundin
+- **Galerie** — 4 Ergebnis-Fotos + Salon-Interieur
 
-1. **`hair_by_songuel.jpg`** (Blondes Balayage, Kamm im Haar) → **Hero-Bild** (Startsektion). Perfekt: zeigt Handwerk, professionelle Umgebung, Premium-Look.
-2. **`haiurbaysionmguel.jpg`** (Dunkle Locken, Extensions) → **Galerie #1** + evtl. About-Sektion.
-3. **`hairbysonguel.jpg`** (Blonde Locken von hinten) → **Galerie #2**.
-4. **`haiur_bysonmguel.jpg`** (Langes Balayage, Mirror-Selfie) → **Galerie #3**.
+Ein Ding fehlt aber noch technisch: das **Social-Sharing-Bild (og:image)**. Aktuell zeigt die Website beim Teilen auf WhatsApp/Instagram/Google einen alten Lovable-Preview-Screenshot statt eines echten Salon-Bildes.
 
-Die restlichen 3 KI-Galeriebilder (g4, g5, g6) werden entfernt oder durch neue echte Fotos ersetzt — die Galerie wird auf 4 Bilder verkleinert, bis mehr Material da ist.
+## Was ich vorschlage
 
-### Was ich noch an Bildern brauchen würde (ideal)
+**Ein sauberes og:image (1200×630 px) erstellen** — das Format, das WhatsApp, Facebook, LinkedIn und Google erwarten. Ich nehme das Hero-Foto als Basis und rahme es passend, dezent mit dem Salon-Namen als Overlay.
 
-Damit die Website komplett authentisch wird, wären folgende Fotos hilfreich:
+### Schritte
 
-**Wichtig (für About & Vertrauen):**
-- **Portrait von Sonuel** (Coiffeuse selbst, freundlich, im Salon) — für die About-Sektion. Baut sofort Vertrauen auf.
-- **Innenraum-Foto des Salons** (Weitwinkel, Empfang oder Stuhlbereich) — zeigt die Atmosphäre.
+1. Aus dem bestehenden Hero-Foto ein 1200×630-Bild rendern (via `imagegen--edit_image`, re-framed) mit sanftem Overlay-Text „Hairbysonguel · Dübendorf".
+2. Als CDN-Asset hochladen (`og-image.jpeg.asset.json`).
+3. In `src/routes/__root.tsx` die veralteten og:image / twitter:image / Lovable-Default-Meta-Tags durch die neue absolute URL ersetzen.
+4. Duplikat-Meta-Tags („Lovable App"-Titel, doppelte Description) aufräumen, damit nur die echten Hairbysonguel-Werte greifen.
 
-**Nice-to-have (für Galerie & Services):**
-- 2–3 weitere Vorher/Nachher-Ergebnisse (verschiedene Farben: kupfer/rot, kurze Schnitte, Hochsteckfrisur)
-- Detail-Foto: Hände bei der Arbeit (Farbe mischen, Föhnen, Balayage-Technik)
-- Ein Braut-/Hochzeitsfrisur-Foto (falls vorhanden)
-- Aussenaufnahme des Ladens (Fassade Bahnhofstrasse 33)
+### Danach fertig mit Bildern
 
-### Format-Tipps
-- Hochformat oder quadratisch ist ok — ich schneide passend zu.
-- Möglichst scharf, gutes Licht (keine dunklen Handy-Schnappschüsse).
-- Wenn Gesichter drauf sind: Einverständnis der Kundinnen sicherstellen.
-
-### Umsetzung
-- Ich lade die 4 Bilder als Lovable-Assets hoch (CDN).
-- Ersetze in `src/routes/index.tsx`: Hero-Bild + die ersten 3 Galerie-Bilder.
-- Entferne die übrigen KI-Bilder aus Galerie & About (About bekommt Platzhalter oder eins der neuen Bilder, bis Portrait da ist).
-
-**Sag mir:** Soll ich mit den 4 aktuellen Bildern starten, oder wartest du noch auf ein Portrait/Innenraumfoto, damit ich alles auf einmal mache?
+Nach diesem Schritt ist visuell alles rund. Weitere Bilder (Fassade Bahnhofstrasse 33, Vorher/Nachher-Paare, Detailaufnahmen bei der Arbeit) wären nice-to-have — brauchen aber Fotos von dir und sind kein Muss für den Launch.
