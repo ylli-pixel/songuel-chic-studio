@@ -230,11 +230,11 @@ function Hero() {
 
 /* ---------------- SERVICES ---------------- */
 const SERVICES = [
-  { icon: Scissors, title: "Haarschnitt", desc: "Präzise Schnitte, die zu Ihrem Gesicht, Stil und Alltag passen — für Frauen, Männer und Kinder." },
-  { icon: Wand2, title: "Balayage", desc: "Handgemalte Highlights für einen natürlichen, sonnenverwöhnten Look mit weichen Übergängen." },
-  { icon: Palette, title: "Coloration", desc: "Von klassisch bis kreativ — schonende Colorationen mit hochwertigen Premium-Produkten." },
-  { icon: Sparkles, title: "Styling", desc: "Blowouts, Hochsteckfrisuren und Braut-Styling für jeden besonderen Anlass." },
-  { icon: Heart, title: "Beauty", desc: "Augenbrauen, Wimpern und pflegende Treatments — kleine Rituale für einen strahlenden Auftritt." },
+  { icon: Scissors, title: "Haarschnitt", desc: "Ein Schnitt, der zu Ihrem Gesicht, Ihrem Alltag und Ihrem Charakter passt — nicht zum letzten Trend." },
+  { icon: Wand2, title: "Balayage", desc: "Von Hand gemalte Highlights für einen sonnenverwöhnten Look mit weichen Übergängen. Herauswachsen ohne harten Ansatz." },
+  { icon: Palette, title: "Coloration", desc: "Schonende Farben aus Premium-Linien — kräftig, natürlich oder ganz Sie selbst. Auch bei empfindlicher Kopfhaut." },
+  { icon: Sparkles, title: "Styling & Braut", desc: "Blowouts, Hochsteckfrisuren und Brautstylings, die den ganzen Abend sitzen — bis zum letzten Tanz." },
+  { icon: Heart, title: "Beauty", desc: "Augenbrauen, Wimpern und pflegende Rituale — die kleinen Details, die den Blick zum Strahlen bringen." },
 ];
 
 function Services() {
