@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
   Scissors, Palette, Sparkles, Wand2, Heart, Star, Phone, MapPin,
-  Instagram, Clock, Mail, ArrowUpRight, Menu, X,
+  Instagram, Clock, Mail, ArrowUpRight, Menu, X, MessageCircle, Plus, Minus,
 } from "lucide-react";
 
 import heroAsset from "@/assets/hero-real.jpg.asset.json";
