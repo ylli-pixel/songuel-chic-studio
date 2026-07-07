@@ -9,12 +9,16 @@ import heroAsset from "@/assets/hero-real.jpg.asset.json";
 import gallery1Asset from "@/assets/gallery-1.jpg.asset.json";
 import gallery2Asset from "@/assets/gallery-2.jpg.asset.json";
 import gallery3Asset from "@/assets/gallery-3.jpg.asset.json";
+import portraitAsset from "@/assets/portrait-songuel.jpeg.asset.json";
+import salonAsset from "@/assets/salon-interior.jpeg.asset.json";
 const hero = heroAsset.url;
-const about = gallery1Asset.url;
+const about = portraitAsset.url;
 const g1 = heroAsset.url;
 const g2 = gallery2Asset.url;
 const g3 = gallery3Asset.url;
 const g4 = gallery1Asset.url;
+const salon = salonAsset.url;
+
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -430,8 +434,10 @@ const GALLERY = [
   { src: g1, alt: "Blondes Balayage mit weichen Übergängen", span: "row-span-2" },
   { src: g2, alt: "Extensions & dunkle Locken — Handwerk im Detail", span: "" },
   { src: g3, alt: "Langes Balayage mit natürlichem Verlauf", span: "row-span-2" },
+  { src: salon, alt: "Salon-Interieur — Hairbysonguel Dübendorf", span: "" },
   { src: g4, alt: "Dichte Locken mit warmen Reflexen", span: "" },
 ];
+
 
 function Gallery() {
   return (
