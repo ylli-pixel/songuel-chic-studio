@@ -555,28 +555,32 @@ function Testimonials() {
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
         <div className="mx-auto max-w-3xl text-center">
           <span className="eyebrow" style={{ color: "var(--color-gold)" }}>Stimmen</span>
-          <h2 className="mt-5 font-display text-4xl tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Was unsere Kundinnen sagen
+          <h2 className="mt-5 font-display text-4xl leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+            Was Kundinnen erleben.
           </h2>
+          <p className="mt-6 text-white/70 leading-[1.7]">
+            Ehrliche Worte aus unserem Salon — mehr sagen wir gar nicht.
+          </p>
         </div>
 
         <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
           {REVIEWS.map((r) => (
             <figure
               key={r.name}
-              className="relative rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-lg transition-all duration-500 hover:-translate-y-1 hover:bg-white/10"
+              className="group relative rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-lg transition-all duration-500 hover:-translate-y-1 hover:border-gold/30 hover:bg-white/[0.08]"
             >
+              <span aria-hidden className="absolute -top-4 left-6 font-display text-7xl leading-none text-gold/60 select-none">“</span>
               <div className="flex gap-1">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} className="size-4 fill-gold text-gold" />
                 ))}
               </div>
-              <blockquote className="mt-6 font-display text-xl italic leading-relaxed text-white/90">
-                “{r.quote}”
+              <blockquote className="mt-6 font-display text-[1.15rem] italic leading-[1.65] text-white/90">
+                {r.quote}
               </blockquote>
               <figcaption className="mt-8 border-t border-white/10 pt-5">
-                <div className="text-sm font-medium text-white">{r.name}</div>
-                <div className="text-xs uppercase tracking-widest text-white/50">{r.role}</div>
+                <div className="font-display text-base text-white">{r.name}</div>
+                <div className="mt-1 text-[11px] uppercase tracking-[0.22em] text-white/50">{r.role}</div>
               </figcaption>
             </figure>
           ))}
