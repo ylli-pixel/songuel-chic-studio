@@ -265,11 +265,16 @@ function Hero() {
         {/* Copy */}
         <div className="lg:col-span-6 rise-in">
           <span className="eyebrow">Coiffeur · Bahnhofstrasse 33 · Dübendorf</span>
-          <h1 className="mt-6 font-display text-[clamp(2.75rem,7.4vw,5.75rem)] leading-[1.02] tracking-tight text-ink">
-            Ihr Haar,
-            <span className="block italic text-ink/90">gemacht mit</span>
-            <span className="block bg-gradient-to-r from-ink via-gold to-ink bg-[length:200%_auto] bg-clip-text text-transparent">
-              Zeit &amp; Liebe.
+          <h1 className="mt-6 font-display leading-[1.02] tracking-tight text-ink">
+            <span className="block text-sm font-sans font-medium uppercase tracking-[0.2em] text-ink/60">
+              Hairbysonguel — Coiffeur &amp; Balayage-Spezialistin in Dübendorf
+            </span>
+            <span className="mt-3 block text-[clamp(2.75rem,7.4vw,5.75rem)]">
+              Ihr Haar,
+              <span className="block italic text-ink/90">gemacht mit</span>
+              <span className="block bg-gradient-to-r from-ink via-gold to-ink bg-[length:200%_auto] bg-clip-text text-transparent">
+                Zeit &amp; Liebe.
+              </span>
             </span>
           </h1>
           <p className="mt-8 max-w-lg text-lg leading-[1.7] text-ink/70">
