@@ -349,25 +349,35 @@ function Preise() {
                 <span className="h-px w-8 bg-gold" />
               </div>
               <ul className="mt-8 space-y-5">
-                {group.items.map((item) => (
-                  <li key={item.name} className="flex items-baseline gap-4">
-                    <div className="min-w-0 flex-1">
-                      <div className="text-sm font-medium uppercase tracking-wider text-ink">
-                        {item.name}
+                {group.items.map((item) => {
+                  const featured = "featured" in item && item.featured;
+                  return (
+                    <li key={item.name} className="flex items-baseline gap-4">
+                      <div className="min-w-0 flex-1">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <div className={`text-sm uppercase tracking-wider ${featured ? "font-semibold text-ink" : "font-medium text-ink"}`}>
+                            {item.name}
+                          </div>
+                          {featured && (
+                            <span className="rounded-full bg-gold/15 px-2 py-0.5 text-[10px] font-medium uppercase tracking-widest text-gold">
+                              Signature
+                            </span>
+                          )}
+                        </div>
+                        {"note" in item && item.note && (
+                          <div className="mt-0.5 text-xs text-ink/55">– {item.note}</div>
+                        )}
                       </div>
-                      {"note" in item && item.note && (
-                        <div className="mt-0.5 text-xs text-ink/55">– {item.note}</div>
-                      )}
-                    </div>
-                    <span
-                      className="flex-1 border-b border-dashed border-ink/15"
-                      aria-hidden="true"
-                    />
-                    <div className="font-display text-lg text-gold whitespace-nowrap">
-                      {item.price}
-                    </div>
-                  </li>
-                ))}
+                      <span
+                        className="flex-1 border-b border-dashed border-ink/15"
+                        aria-hidden="true"
+                      />
+                      <div className={`font-display whitespace-nowrap ${featured ? "text-xl text-ink" : "text-lg text-gold"}`}>
+                        {item.price}
+                      </div>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
