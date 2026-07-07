@@ -137,33 +137,48 @@ function Hero() {
       <div className="relative mx-auto grid min-h-[100svh] max-w-7xl grid-cols-1 items-center gap-12 px-6 pt-32 pb-20 lg:grid-cols-12 lg:gap-8 lg:px-10">
         {/* Copy */}
         <div className="lg:col-span-6 rise-in">
-          <span className="eyebrow">Coiffeur · Dübendorf</span>
-          <h1 className="mt-6 font-display text-[clamp(2.75rem,7vw,5.5rem)] leading-[1.02] tracking-tight text-ink">
-            Hair<span className="italic">by</span>
+          <span className="eyebrow">Coiffeur · Bahnhofstrasse 33 · Dübendorf</span>
+          <h1 className="mt-6 font-display text-[clamp(2.75rem,7.4vw,5.75rem)] leading-[1.02] tracking-tight text-ink">
+            Ihr Haar,
+            <span className="block italic text-ink/90">gemacht mit</span>
             <span className="block bg-gradient-to-r from-ink via-gold to-ink bg-[length:200%_auto] bg-clip-text text-transparent">
-              sonĝuel
+              Zeit &amp; Liebe.
             </span>
           </h1>
-          <p className="mt-8 max-w-lg text-lg leading-relaxed text-ink/70">
-            Professionelle Haarpflege, Balayage und Styling in Dübendorf —
-            mit Handwerk, Ruhe und einem Auge fürs Detail.
+          <p className="mt-8 max-w-lg text-lg leading-[1.7] text-ink/70">
+            Premium Coiffeur in Dübendorf — spezialisiert auf natürliche
+            <span className="font-medium text-ink"> Balayage</span>, präzise Schnitte
+            und ehrliche Beratung. Ohne Hektik, ohne Kompromisse.
           </p>
-          <div className="mt-10 flex flex-wrap items-center gap-4">
+          <div className="mt-10 flex flex-wrap items-center gap-3 sm:gap-4">
             <a href="#contact" className="btn-primary">
               Termin vereinbaren
               <ArrowUpRight className="size-4" />
             </a>
-            <a href="#services" className="btn-ghost">Dienstleistungen ansehen</a>
+            <a
+              href="https://wa.me/41767229519?text=Hallo%20Son%C4%9Fuel%2C%20ich%20m%C3%B6chte%20gerne%20einen%20Termin%20vereinbaren."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-whatsapp"
+            >
+              <WhatsAppIcon className="size-4" />
+              WhatsApp
+            </a>
+            <a href="tel:+41767229519" className="btn-ghost">
+              <Phone className="size-4" />
+              076 722 95 19
+            </a>
           </div>
 
-          <div className="mt-14 flex items-center gap-8 text-sm text-ink/70">
+          <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-ink/70">
             <div className="flex items-center gap-2">
               <div className="flex">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} className="size-4 fill-gold text-gold" />
                 ))}
               </div>
-              <span>5.0 · Google Bewertungen</span>
+              <span className="font-medium text-ink">5.0</span>
+              <span>· Google Bewertungen</span>
             </div>
             <div className="hidden h-6 w-px bg-ink/15 sm:block" />
             <span className="hidden sm:inline">15+ Jahre Erfahrung</span>
