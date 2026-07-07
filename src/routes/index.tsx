@@ -286,8 +286,8 @@ const PRICE_GROUPS = [
   {
     title: "Color Services",
     items: [
-      { name: "Balayage Paket Kurz Haar", price: "220.–" },
-      { name: "Balayage Paket Langhaar", price: "280.–" },
+      { name: "Balayage Paket Kurz Haar", price: "220.–", featured: true },
+      { name: "Balayage Paket Langhaar", price: "280.–", featured: true },
       { name: "Komplett Farbe", price: "95.–" },
       { name: "Ansatz Färben", price: "65.–" },
       { name: "Tönung", price: "45.–" },
