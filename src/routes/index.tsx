@@ -89,6 +89,7 @@ const NAV = [
   { id: "preise", label: "Preise" },
   { id: "gallery", label: "Galerie" },
   { id: "about", label: "Über uns" },
+  { id: "faq", label: "FAQ" },
   { id: "contact", label: "Kontakt" },
 ];
 
@@ -113,10 +114,77 @@ function Home() {
         <About />
         <Gallery />
         <Testimonials />
+        <FAQ />
         <Contact />
       </main>
       <Footer />
+      <StickyWhatsApp />
     </div>
+  );
+}
+
+/* ---------------- FAQ ---------------- */
+function FAQ() {
+  const [openIdx, setOpenIdx] = useState<number | null>(0);
+  return (
+    <section id="faq" className="bg-cream py-24 sm:py-32">
+      <div className="mx-auto max-w-4xl px-6 lg:px-10">
+        <div className="text-center">
+          <span className="eyebrow justify-center">Häufige Fragen</span>
+          <h2 className="mt-5 font-display text-4xl leading-tight tracking-tight sm:text-5xl">
+            Wissenswertes vor deinem <span className="italic text-gold">Besuch</span>
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-ink/70">
+            Was du sonst noch gerne wüsstest — hier die Antworten auf die häufigsten Fragen.
+          </p>
+        </div>
+
+        <div className="mt-14 space-y-3">
+          {FAQS.map((item, i) => {
+            const isOpen = openIdx === i;
+            return (
+              <div
+                key={item.q}
+                className="rounded-2xl border border-ink/10 bg-white/60 transition hover:border-gold/40"
+              >
+                <button
+                  type="button"
+                  onClick={() => setOpenIdx(isOpen ? null : i)}
+                  aria-expanded={isOpen}
+                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left font-display text-lg text-ink"
+                >
+                  <span>{item.q}</span>
+                  {isOpen ? (
+                    <Minus className="size-5 shrink-0 text-gold" />
+                  ) : (
+                    <Plus className="size-5 shrink-0 text-gold" />
+                  )}
+                </button>
+                {isOpen && (
+                  <div className="px-6 pb-5 text-ink/75 leading-[1.7]">{item.a}</div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- STICKY WHATSAPP ---------------- */
+function StickyWhatsApp() {
+  return (
+    <a
+      href="https://wa.me/41767229519"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Termin per WhatsApp anfragen"
+      className="fixed bottom-5 right-5 z-40 flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-white shadow-lg shadow-black/20 transition hover:scale-105 hover:bg-[#1ebe57] sm:bottom-6 sm:right-6"
+    >
+      <MessageCircle className="size-5" />
+      <span className="hidden text-sm font-medium sm:inline">Termin per WhatsApp</span>
+    </a>
   );
 }
 
