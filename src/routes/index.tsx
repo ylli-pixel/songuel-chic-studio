@@ -434,11 +434,11 @@ function About() {
 
 /* ---------------- GALLERY ---------------- */
 const GALLERY = [
-  { src: g1, alt: "Blondes Balayage mit weichen Übergängen", span: "row-span-2" },
-  { src: g2, alt: "Extensions & dunkle Locken — Handwerk im Detail", span: "" },
-  { src: g3, alt: "Langes Balayage mit natürlichem Verlauf", span: "row-span-2" },
-  { src: salon, alt: "Salon-Interieur — Hairbysonguel Dübendorf", span: "" },
-  { src: g4, alt: "Dichte Locken mit warmen Reflexen", span: "" },
+  { src: g1, alt: "Blondes Balayage mit weichen Übergängen — gestylt bei Hairbysonguel Dübendorf", span: "row-span-2", w: 1600, h: 1800 },
+  { src: g2, alt: "Extensions und dunkle Locken — Handwerk im Detail bei Hairbysonguel", span: "", w: 1200, h: 1200 },
+  { src: g3, alt: "Langes Balayage mit natürlichem Farbverlauf", span: "row-span-2", w: 1200, h: 1500 },
+  { src: salon, alt: "Innenraum des Salons Hairbysonguel in Dübendorf mit Stylingplätzen, grossen Spiegeln und Blumenwand", span: "", w: 1200, h: 900 },
+  { src: g4, alt: "Dichte Locken mit warmen Reflexen — Coloration von Hairbysonguel", span: "", w: 1200, h: 1200 },
 ];
 
 
@@ -466,8 +466,13 @@ function Gallery() {
                 src={img.src}
                 alt={img.alt}
                 loading="lazy"
+                decoding="async"
+                width={img.w}
+                height={img.h}
+                sizes="(min-width: 1024px) 300px, (min-width: 640px) 33vw, 50vw"
                 className="size-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
               />
+
               <div className="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 translate-y-4 p-5 text-sm font-medium text-white opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                 {img.alt}
