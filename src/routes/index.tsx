@@ -25,6 +25,33 @@ const HOME_TITLE = "Hairbysonguel — Coiffeur & Balayage-Spezialistin in Düben
 const HOME_DESC =
   "Premium Coiffeur-Salon an der Bahnhofstrasse Dübendorf. Balayage, Coloration, Damen- & Herrenschnitte, Styling und Beauty — mit Handwerk und Herz.";
 
+const FAQS = [
+  {
+    q: "Wie lange dauert eine Balayage?",
+    a: "Je nach Haarlänge und Ausgangsfarbe zwischen 2,5 und 4 Stunden — inklusive Beratung, Farbe, Wäsche, Pflege und Föhnstyling.",
+  },
+  {
+    q: "Was kostet eine Balayage bei euch?",
+    a: "Balayage beginnt bei CHF 220 und wird individuell nach Länge und Aufwand kalkuliert. Den exakten Preis besprechen wir immer vorab per WhatsApp oder in der Beratung.",
+  },
+  {
+    q: "Muss ich einen Termin vereinbaren?",
+    a: "Ja, wir arbeiten ausschliesslich mit Terminen — so hast du unsere volle Aufmerksamkeit und wir vermeiden Wartezeit. Am schnellsten geht es per WhatsApp.",
+  },
+  {
+    q: "Wo genau befindet sich der Salon?",
+    a: "An der Bahnhofstrasse 33 in 8600 Dübendorf — 2 Minuten vom Bahnhof Dübendorf zu Fuss. Parkplätze findest du in der Blauen Zone rund um den Bahnhof.",
+  },
+  {
+    q: "Bietet ihr auch Herrenschnitte an?",
+    a: "Ja, Damen- und Herrenschnitte sind ein fixer Teil unseres Angebots. Schreib uns dein Wunschresultat kurz vorab, dann können wir realistisch einschätzen was möglich ist.",
+  },
+  {
+    q: "Kann ich einen Termin kurzfristig absagen?",
+    a: "Wir bitten dich, Absagen mindestens 24 Stunden vorher mitzuteilen — so können wir den Slot noch anderen Kundinnen anbieten.",
+  },
+];
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -38,6 +65,20 @@ export const Route = createFileRoute("/")({
       { name: "twitter:image", content: OG_IMAGE_URL },
     ],
     links: [{ rel: "canonical", href: url("/") }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: FAQS.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }),
+      },
+    ],
   }),
   component: Home,
 });
