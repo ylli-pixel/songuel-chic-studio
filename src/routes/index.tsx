@@ -822,7 +822,6 @@ function Footer() {
             <Link to="/datenschutz" className="transition hover:text-gold">Datenschutz</Link>
           </div>
         </div>
-        </div>
       </div>
     </footer>
   );
