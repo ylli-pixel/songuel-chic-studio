@@ -82,6 +82,129 @@ const POSTS: Record<string, Post> = {
       </>
     ),
   },
+
+  "balayage-vs-highlights": {
+    slug: "balayage-vs-highlights",
+    title: "Balayage vs. Highlights: Was passt zu dir?",
+    description:
+      "Balayage oder Highlights? Wir erklären den echten Unterschied, wann welche Technik Sinn macht — und was das für Pflege und Budget bedeutet.",
+    date: "2026-07-07",
+    readingTime: "5 Min. Lesezeit",
+    render: () => (
+      <>
+        <p>
+          „Ich möchte etwas Helleres" — der Satz startet fast jede Farbberatung im
+          Salon. Und fast immer folgt die gleiche Frage: <em>Balayage oder Highlights?</em>
+          Hier ist der ehrliche Unterschied — ohne Marketing-Sprech.
+        </p>
+
+        <h2>Highlights: die klassische Technik</h2>
+        <p>
+          Highlights werden mit Alufolie Strähne für Strähne aufgehellt — meistens vom
+          Ansatz bis zur Spitze. Das Ergebnis ist gleichmässig, kontrastreich und
+          klassisch. Perfekt, wenn du einen präzisen, sichtbaren Farbunterschied willst.
+        </p>
+
+        <h2>Balayage: die freihändige Technik</h2>
+        <p>
+          Balayage kommt aus dem Französischen und heisst wörtlich „fegen". Die Farbe
+          wird frei mit dem Pinsel aufgetragen — meistens von der Mitte bis zu den
+          Spitzen. Das Ergebnis wirkt weicher, sonnengeküsst und wächst deutlich
+          natürlicher heraus.
+        </p>
+
+        <h2>Der Nachwachs-Faktor</h2>
+        <p>
+          Der grösste praktische Unterschied: Highlights brauchen alle 6–8 Wochen
+          einen Ansatz-Termin, sonst wird die Trennlinie sichtbar. Balayage kannst
+          du problemlos 3–5 Monate wachsen lassen — ein grosser Vorteil, wenn du nicht
+          alle paar Wochen im Salon sitzen willst.
+        </p>
+
+        <h2>Budget im Vergleich</h2>
+        <p>
+          Balayage ist pro Termin meistens teurer, dafür seltener nötig. Auf ein Jahr
+          gerechnet fährst du oft günstiger als mit klassischen Highlights. Highlights
+          sind ideal für gleichmässigen Look und regelmässige Pflege.
+        </p>
+
+        <h2>Was passt zu wem?</h2>
+        <p>
+          <strong>Highlights</strong> lohnen sich, wenn du einen deutlichen, präzisen
+          Kontrast willst — oder wenn deine Haare sehr dunkel sind und du viel Helligkeit
+          brauchst. <strong>Balayage</strong> ist deine Wahl, wenn du einen natürlichen,
+          entspannten Look willst und dir Flexibilität wichtiger ist als Symmetrie.
+        </p>
+
+        <h2>Nicht sicher? Schreib mir.</h2>
+        <p>
+          In 5 Minuten WhatsApp mit einem Foto deiner aktuellen Haare kann ich dir
+          meistens schon sagen, welche Technik zu dir passt. Kein Termindruck, keine
+          Verpflichtung.
+        </p>
+      </>
+    ),
+  },
+
+  "haare-pflegen-im-winter": {
+    slug: "haare-pflegen-im-winter",
+    title: "Haare pflegen im Winter: 5 Rituale gegen trockenes Haar",
+    description:
+      "Heizungsluft, Wollmützen, Kälte — was deinen Haaren im Winter wirklich hilft. 5 einfache Rituale von Hairbysonguel in Dübendorf.",
+    date: "2026-07-07",
+    readingTime: "5 Min. Lesezeit",
+    render: () => (
+      <>
+        <p>
+          Der Winter ist die härteste Jahreszeit für deine Haare: Heizung entzieht
+          Feuchtigkeit, Wollmützen laden statisch auf, Kälte macht die Spitzen brüchig.
+          Mit diesen fünf Ritualen bleiben deine Haare durch die kalten Monate gesund.
+        </p>
+
+        <h2>1. Öl statt Serum am Morgen</h2>
+        <p>
+          Ein Tropfen Arganöl oder Marula-Öl in die Längen — nicht in den Ansatz.
+          Das versiegelt die Haaroberfläche gegen den Feuchtigkeitsverlust in
+          Heizungsluft.
+        </p>
+
+        <h2>2. Kaltes Nachspülen</h2>
+        <p>
+          Die letzte Spülung mit kaltem Wasser schliesst die Schuppenschicht. Das
+          Haar reflektiert mehr Licht und wirkt sofort glänzender — kostenlos und
+          extrem effektiv.
+        </p>
+
+        <h2>3. Seidenkissen statt Baumwolle</h2>
+        <p>
+          Baumwolle zieht Feuchtigkeit aus dem Haar und verursacht Reibung. Ein
+          Seidenkissenbezug reduziert Frizz spürbar und ist besonders bei
+          coloriertem Haar Gold wert.
+        </p>
+
+        <h2>4. Wollmütze richtig tragen</h2>
+        <p>
+          Direkt auf dem Haar reibt Wolle. Ein dünnes Seiden- oder Satin-Tuch unter
+          die Mütze — kleine Investition, riesiger Unterschied für Farbschutz und
+          weniger statische Aufladung.
+        </p>
+
+        <h2>5. Alle 8 Wochen zum Spitzenschneiden</h2>
+        <p>
+          Im Winter werden Spitzen schneller trocken. Alle 6–8 Wochen 1–2 cm
+          nachschneiden hält das gesamte Haar gesund — sonst wandert die
+          Trockenheit nach oben.
+        </p>
+
+        <h2>Winter-Check im Salon</h2>
+        <p>
+          Wenn deine Haare sich gerade wirklich anfühlen als bräuchten sie Hilfe:
+          Schreib mir kurz. Ein 30-minütiges Pflege-Ritual im Salon kann Wunder
+          wirken — besonders vor den Festtagen.
+        </p>
+      </>
+    ),
+  },
 };
 
 export const Route = createFileRoute("/blog/$slug")({

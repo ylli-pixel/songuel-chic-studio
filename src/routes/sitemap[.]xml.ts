@@ -18,6 +18,8 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/", changefreq: "weekly", priority: "1.0", lastmod: today },
           { path: "/blog", changefreq: "weekly", priority: "0.7", lastmod: today },
           { path: "/blog/balayage-pflege", changefreq: "monthly", priority: "0.8", lastmod: today },
+          { path: "/blog/balayage-vs-highlights", changefreq: "monthly", priority: "0.8", lastmod: today },
+          { path: "/blog/haare-pflegen-im-winter", changefreq: "monthly", priority: "0.8", lastmod: today },
           { path: "/impressum", changefreq: "yearly", priority: "0.2" },
           { path: "/datenschutz", changefreq: "yearly", priority: "0.2" },
         ];
