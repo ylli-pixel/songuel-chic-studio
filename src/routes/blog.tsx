@@ -11,6 +11,22 @@ const POSTS = [
     date: "2026-07-07",
     readingTime: "6 Min. Lesezeit",
   },
+  {
+    slug: "balayage-vs-highlights",
+    title: "Balayage vs. Highlights: Was passt zu dir?",
+    excerpt:
+      "Zwei Techniken, zwei Ergebnisse. Wir erklären den echten Unterschied und wann welche Variante wirklich Sinn macht.",
+    date: "2026-07-07",
+    readingTime: "5 Min. Lesezeit",
+  },
+  {
+    slug: "haare-pflegen-im-winter",
+    title: "Haare pflegen im Winter: 5 Rituale gegen trockenes Haar",
+    excerpt:
+      "Heizungsluft, Wollmützen, Kälte — was deinen Haaren im Winter wirklich hilft und was du besser weglässt.",
+    date: "2026-07-07",
+    readingTime: "5 Min. Lesezeit",
+  },
 ];
 
 export const Route = createFileRoute("/blog")({
