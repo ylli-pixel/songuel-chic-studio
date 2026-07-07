@@ -11,6 +11,7 @@ import gallery2Asset from "@/assets/gallery-2.jpg.asset.json";
 import gallery3Asset from "@/assets/gallery-3.jpg.asset.json";
 import portraitAsset from "@/assets/portrait-songuel.jpeg.asset.json";
 import salonAsset from "@/assets/salon-interior.jpeg.asset.json";
+import { url, OG_IMAGE_URL } from "@/lib/seo";
 const hero = heroAsset.url;
 const about = portraitAsset.url;
 const g1 = heroAsset.url;
@@ -20,7 +21,24 @@ const g4 = gallery1Asset.url;
 const salon = salonAsset.url;
 
 
+const HOME_TITLE = "Hairbysonguel — Coiffeur & Balayage-Spezialistin in Dübendorf";
+const HOME_DESC =
+  "Premium Coiffeur-Salon an der Bahnhofstrasse Dübendorf. Balayage, Coloration, Damen- & Herrenschnitte, Styling und Beauty — mit Handwerk und Herz.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: HOME_TITLE },
+      { name: "description", content: HOME_DESC },
+      { property: "og:title", content: HOME_TITLE },
+      { property: "og:description", content: HOME_DESC },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: url("/") },
+      { property: "og:image", content: OG_IMAGE_URL },
+      { name: "twitter:image", content: OG_IMAGE_URL },
+    ],
+    links: [{ rel: "canonical", href: url("/") }],
+  }),
   component: Home,
 });
 
