@@ -10,6 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { url } from "@/lib/seo";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { CookieBanner } from "../components/CookieBanner";
 
@@ -87,6 +88,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "theme-color", content: "#F6E7EA" },
       { property: "og:title", content: SITE_TITLE },
       { property: "og:description", content: SITE_DESC },
+      { property: "og:url", content: url("/") },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Hairbysonguel" },
       { name: "twitter:card", content: "summary_large_image" },
