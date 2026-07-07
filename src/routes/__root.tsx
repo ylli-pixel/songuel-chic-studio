@@ -15,15 +15,30 @@ import { CookieBanner } from "../components/CookieBanner";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-cream px-4">
-      <div className="max-w-md text-center">
-        <h1 className="font-display text-7xl text-ink">404</h1>
-        <h2 className="mt-4 text-xl font-medium text-ink">Seite nicht gefunden</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Die gesuchte Seite existiert nicht oder wurde verschoben.
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-blush px-6">
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        <div className="float-a absolute -left-24 top-24 size-[420px] rounded-full bg-white/50 blur-3xl" />
+        <div className="float-b absolute -right-32 bottom-0 size-[520px] rounded-full bg-gold/25 blur-3xl" />
+      </div>
+      <div className="relative max-w-lg text-center rise-in">
+        <span className="eyebrow justify-center">Seite nicht gefunden</span>
+        <h1 className="mt-6 font-display text-[clamp(4rem,12vw,7rem)] leading-none tracking-tight text-ink">
+          4<span className="italic text-gold">0</span>4
+        </h1>
+        <p className="mt-6 text-lg leading-[1.7] text-ink/70">
+          Diese Seite hat sich verlaufen — vielleicht wie ein Ansatz, der nachwächst.
+          Kehren Sie zur Startseite zurück oder schreiben Sie uns direkt.
         </p>
-        <div className="mt-6">
+        <div className="mt-10 flex flex-wrap justify-center gap-3">
           <Link to="/" className="btn-primary">Zur Startseite</Link>
+          <a
+            href="https://wa.me/41767229519"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-ghost"
+          >
+            WhatsApp
+          </a>
         </div>
       </div>
     </div>
