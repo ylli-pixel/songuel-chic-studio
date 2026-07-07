@@ -265,11 +265,16 @@ function Hero() {
         {/* Copy */}
         <div className="lg:col-span-6 rise-in">
           <span className="eyebrow">Coiffeur · Bahnhofstrasse 33 · Dübendorf</span>
-          <h1 className="mt-6 font-display text-[clamp(2.75rem,7.4vw,5.75rem)] leading-[1.02] tracking-tight text-ink">
-            Ihr Haar,
-            <span className="block italic text-ink/90">gemacht mit</span>
-            <span className="block bg-gradient-to-r from-ink via-gold to-ink bg-[length:200%_auto] bg-clip-text text-transparent">
-              Zeit &amp; Liebe.
+          <h1 className="mt-6 font-display leading-[1.02] tracking-tight text-ink">
+            <span className="block text-sm font-sans font-medium uppercase tracking-[0.2em] text-ink/60">
+              Hairbysonguel — Coiffeur &amp; Balayage-Spezialistin in Dübendorf
+            </span>
+            <span className="mt-3 block text-[clamp(2.75rem,7.4vw,5.75rem)]">
+              Ihr Haar,
+              <span className="block italic text-ink/90">gemacht mit</span>
+              <span className="block bg-gradient-to-r from-ink via-gold to-ink bg-[length:200%_auto] bg-clip-text text-transparent">
+                Zeit &amp; Liebe.
+              </span>
             </span>
           </h1>
           <p className="mt-8 max-w-lg text-lg leading-[1.7] text-ink/70">
@@ -286,6 +291,7 @@ function Hero() {
               href="https://wa.me/41767229519?text=Hallo%20Son%C4%9Fuel%2C%20ich%20m%C3%B6chte%20gerne%20einen%20Termin%20vereinbaren."
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Termin per WhatsApp anfragen"
               className="btn-whatsapp"
             >
               <WhatsAppIcon className="size-4" />
@@ -642,9 +648,10 @@ function Gallery() {
             href="https://instagram.com/hairbysonguel"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Mehr Arbeiten von Hairbysonguel auf Instagram ansehen"
             className="btn-ghost"
           >
-            <Instagram className="size-4" />
+            <Instagram className="size-4" aria-hidden="true" />
             Mehr auf Instagram
           </a>
         </div>
@@ -903,11 +910,11 @@ function WhatsAppIcon({ className }: { className?: string }) {
   );
 }
 
-function ContactRow({ icon: Icon, label, href }: { icon: React.ComponentType<{ className?: string }>; label: string; href: string }) {
+function ContactRow({ icon: Icon, label, href, ariaLabel }: { icon: React.ComponentType<{ className?: string }>; label: string; href: string; ariaLabel?: string }) {
   return (
-    <a href={href} className="group flex items-center gap-4">
+    <a href={href} aria-label={ariaLabel} className="group flex items-center gap-4">
       <div className="grid size-12 shrink-0 place-items-center rounded-full bg-blush transition-colors duration-500 group-hover:bg-ink group-hover:text-white">
-        <Icon className="size-5" />
+        <Icon className="size-5" aria-hidden={true} />
       </div>
       <span className="text-ink/80 transition-colors group-hover:text-ink">{label}</span>
     </a>
@@ -944,8 +951,8 @@ function Footer() {
             Premium Coiffeur-Salon in Dübendorf. Balayage, Coloration, Styling &
             Beauty — mit Handwerk und Herz.
           </p>
-          <a href="https://instagram.com/hairbysonguel" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-sm transition hover:border-gold hover:text-gold">
-            <Instagram className="size-4" /> @hairbysonguel
+          <a href="https://instagram.com/hairbysonguel" target="_blank" rel="noopener noreferrer" aria-label="Hairbysonguel auf Instagram" className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-sm transition hover:border-gold hover:text-gold">
+            <Instagram className="size-4" aria-hidden="true" /> @hairbysonguel
           </a>
         </div>
 
