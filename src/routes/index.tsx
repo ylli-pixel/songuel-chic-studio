@@ -377,13 +377,16 @@ function About() {
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2.5rem] shadow-[0_40px_100px_-30px_rgba(46,46,46,0.35)]">
             <img
               src={about}
-              alt="Sonĝuel, Coiffeur-Meisterin und Inhaberin von Hairbysonguel"
+              alt="Coiffeuse Sonĝuel stylt einer lächelnden Kundin einen glänzenden Bob im Salon Hairbysonguel in Dübendorf"
               loading="lazy"
-              width={1200}
-              height={1500}
+              decoding="async"
+              width={1240}
+              height={1240}
+              sizes="(min-width: 1024px) 560px, (min-width: 640px) 90vw, 100vw"
               className="size-full object-cover"
             />
           </div>
+
           <div className="absolute -bottom-6 -right-4 rounded-3xl glass-card px-6 py-5 sm:-right-8">
             <div className="font-display text-4xl text-ink">15<span className="text-gold">+</span></div>
             <div className="mt-1 text-xs uppercase tracking-widest text-ink/60">Jahre Erfahrung</div>
