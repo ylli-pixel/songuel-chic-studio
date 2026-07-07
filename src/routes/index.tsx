@@ -654,21 +654,23 @@ function Gallery() {
 }
 
 /* ---------------- TESTIMONIALS ---------------- */
-const REVIEWS = [
+const GOOGLE_REVIEWS_URL =
+  "https://www.google.com/maps/place/Unicorn+Beauty+Salon/data=!4m2!3m1!1s0x0:0x87f5cf1aa6048b25";
+const GOOGLE_RATING = 4.9;
+const GOOGLE_REVIEW_COUNT = 104;
+
+const REVIEW_HIGHLIGHTS = [
   {
-    quote: "Ich fühle mich bei Sonĝuel immer wie zuhause. Meine Balayage sieht seit Jahren makellos aus — natürlich, weich, einfach schön.",
-    name: "Laura M.",
-    role: "Kundin seit 2019",
+    title: "Handwerkliche Präzision",
+    body: "Balayage, die Wochen später noch weich und natürlich aussieht — nichts wirkt gestreift, nichts kippt gelb.",
   },
   {
-    quote: "Endlich ein Salon, der zuhört. Der Schnitt sitzt perfekt und meine Haare fühlen sich gesünder an als je zuvor.",
-    name: "Nadia K.",
-    role: "Neu in Dübendorf",
+    title: "Echtes Zuhören",
+    body: "Vor jeder Behandlung eine ehrliche Beratung. Kein Verkaufsdruck, sondern der Vorschlag, der wirklich zu dir passt.",
   },
   {
-    quote: "Für meine Hochzeit hat Sonĝuel ein Styling gezaubert, das alle sprachlos gemacht hat. Absolut empfehlenswert.",
-    name: "Sarah B.",
-    role: "Braut 2024",
+    title: "Warme Atmosphäre",
+    body: "Kein steriles Studio — ein Ort zum Ankommen. Viele Kundinnen kommen seit Jahren wieder.",
   },
 ];
 
@@ -683,35 +685,59 @@ function Testimonials() {
         <div className="mx-auto max-w-3xl text-center">
           <span className="eyebrow" style={{ color: "var(--color-gold)" }}>Stimmen</span>
           <h2 className="mt-5 font-display text-4xl leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Was Kundinnen erleben.
+            Bewertet mit <span className="italic text-gold">{GOOGLE_RATING.toString().replace(".", ",")}</span> von 5.
           </h2>
           <p className="mt-6 text-white/70 leading-[1.7]">
-            Ehrliche Worte aus unserem Salon — mehr sagen wir gar nicht.
+            Über {GOOGLE_REVIEW_COUNT} echte Google-Rezensionen unseres Salons in Dübendorf.
           </p>
+
+          {/* Google Rating Badge */}
+          <a
+            href={GOOGLE_REVIEWS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${GOOGLE_RATING} von 5 Sternen bei ${GOOGLE_REVIEW_COUNT} Google-Rezensionen — auf Google Maps ansehen`}
+            className="mt-10 inline-flex items-center gap-4 rounded-full border border-white/15 bg-white/[0.04] px-6 py-4 backdrop-blur transition hover:-translate-y-0.5 hover:border-gold/40 hover:bg-white/[0.08]"
+          >
+            <div className="flex items-center gap-1">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="size-5 fill-gold text-gold" />
+              ))}
+            </div>
+            <div className="text-left">
+              <div className="font-display text-2xl leading-none text-white">
+                {GOOGLE_RATING.toString().replace(".", ",")} / 5
+              </div>
+              <div className="mt-1 text-[11px] uppercase tracking-[0.22em] text-white/60">
+                {GOOGLE_REVIEW_COUNT} Google-Rezensionen
+              </div>
+            </div>
+            <ArrowUpRight className="size-5 text-gold" />
+          </a>
         </div>
 
         <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
-          {REVIEWS.map((r) => (
+          {REVIEW_HIGHLIGHTS.map((r) => (
             <figure
-              key={r.name}
+              key={r.title}
               className="group relative rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-lg transition-all duration-500 hover:-translate-y-1 hover:border-gold/30 hover:bg-white/[0.08]"
             >
-              <span aria-hidden className="absolute -top-4 left-6 font-display text-7xl leading-none text-gold/60 select-none">“</span>
               <div className="flex gap-1">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} className="size-4 fill-gold text-gold" />
                 ))}
               </div>
-              <blockquote className="mt-6 font-display text-[1.15rem] italic leading-[1.65] text-white/90">
-                {r.quote}
-              </blockquote>
-              <figcaption className="mt-8 border-t border-white/10 pt-5">
-                <div className="font-display text-base text-white">{r.name}</div>
-                <div className="mt-1 text-[11px] uppercase tracking-[0.22em] text-white/50">{r.role}</div>
-              </figcaption>
+              <div className="mt-6 font-display text-[1.2rem] leading-tight text-white">
+                {r.title}
+              </div>
+              <p className="mt-3 text-white/70 leading-[1.65]">{r.body}</p>
             </figure>
           ))}
         </div>
+
+        <p className="mt-12 text-center text-xs text-white/40">
+          Rezensionen des Unicorn Beauty Salon in Dübendorf, in dem Sonĝuel als Coiffeuse arbeitet.
+        </p>
       </div>
     </section>
   );
