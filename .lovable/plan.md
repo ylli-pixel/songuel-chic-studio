@@ -1,23 +1,72 @@
-## Status Bilder
+# Launch-Vorbereitung: Rechtliches & Favicon
 
-Alle sichtbaren Bildplätze auf der Website sind mit echten Fotos gefüllt:
-- **Hero** — Balayage-Arbeit
-- **About** — Portrait von Sonĝuel mit Kundin
-- **Galerie** — 4 Ergebnis-Fotos + Salon-Interieur
+Bevor die Seite an eine echte Kundin ausgeliefert wird, brauchen wir die Schweizer Pflichtangaben und ein eigenes Favicon. Ohne diese Punkte darf die Seite kommerziell nicht live gehen.
 
-Ein Ding fehlt aber noch technisch: das **Social-Sharing-Bild (og:image)**. Aktuell zeigt die Website beim Teilen auf WhatsApp/Instagram/Google einen alten Lovable-Preview-Screenshot statt eines echten Salon-Bildes.
+## Was wir bauen
 
-## Was ich vorschlage
+### 1. Impressum-Seite (`/impressum`)
+Eigene Route mit:
+- Firmenname / Inhaberin: **Sonĝuel [Nachname]**
+- Adresse: Bahnhofstrasse 33, 8600 Dübendorf
+- Kontakt: Telefon, E-Mail
+- Optional: UID-Nummer (CHE-...), Handelsregister
+- Verantwortlich für den Inhalt: Sonĝuel [Nachname]
+- Haftungsausschluss (Links, Inhalte)
 
-**Ein sauberes og:image (1200×630 px) erstellen** — das Format, das WhatsApp, Facebook, LinkedIn und Google erwarten. Ich nehme das Hero-Foto als Basis und rahme es passend, dezent mit dem Salon-Namen als Overlay.
+### 2. Datenschutzerklärung (`/datenschutz`)
+Eigene Route mit klarem, DSG-konformem Text (Schweizer Datenschutzgesetz + Hinweis auf DSGVO für EU-Besucherinnen):
+- Verantwortliche Stelle
+- Welche Daten erhoben werden (Kontaktformular → WhatsApp-Weiterleitung)
+- Verwendung von Google Maps (Einbettung + Datenübertragung an Google)
+- Instagram-Verlinkung
+- Server-Logs / Hosting (Lovable)
+- Cookies (aktuell keine Tracking-Cookies, nur technisch nötige)
+- Rechte der Nutzerinnen (Auskunft, Löschung, Berichtigung)
+- Kontakt für Datenschutzanfragen
 
-### Schritte
+### 3. Cookie-Hinweis (dezenter Banner)
+Kleiner eleganter Banner unten rechts, passend zum Design:
+- Kurzer Text: „Diese Website nutzt Google Maps und speichert Einstellungen lokal. Mehr Infos in der Datenschutzerklärung."
+- Ein Button: „Verstanden"
+- Speichert Zustimmung in `localStorage`
+- Erscheint nur beim ersten Besuch
 
-1. Aus dem bestehenden Hero-Foto ein 1200×630-Bild rendern (via `imagegen--edit_image`, re-framed) mit sanftem Overlay-Text „Hairbysonguel · Dübendorf".
-2. Als CDN-Asset hochladen (`og-image.jpeg.asset.json`).
-3. In `src/routes/__root.tsx` die veralteten og:image / twitter:image / Lovable-Default-Meta-Tags durch die neue absolute URL ersetzen.
-4. Duplikat-Meta-Tags („Lovable App"-Titel, doppelte Description) aufräumen, damit nur die echten Hairbysonguel-Werte greifen.
+### 4. Footer-Links ergänzen
+Im bestehenden Footer:
+- Link zu `/impressum`
+- Link zu `/datenschutz`
+- Diskret aber sichtbar unten
 
-### Danach fertig mit Bildern
+### 5. Eigenes Favicon
+- Elegantes „H" oder „hs"-Monogramm in Blush/Gold, passend zum Branding
+- Als PNG (`public/favicon.png`) generiert
+- In `__root.tsx` eingebunden, alte `favicon.ico` wird gelöscht
+- Zusätzlich `apple-touch-icon` für iPhone-Homescreen
 
-Nach diesem Schritt ist visuell alles rund. Weitere Bilder (Fassade Bahnhofstrasse 33, Vorher/Nachher-Paare, Detailaufnahmen bei der Arbeit) wären nice-to-have — brauchen aber Fotos von dir und sind kein Muss für den Launch.
+### 6. 404-Seite polieren
+Die bestehende NotFound-Komponente in `__root.tsx` bekommt den gleichen Premium-Look wie die Hauptseite (Serif-Headline, Blush-Hintergrund, sanfte Animation, Button zurück zur Startseite und WhatsApp-Kontakt).
+
+## Was ich von dir brauche (bevor ich baue)
+
+Bitte diese 4 Infos in einer Nachricht schicken:
+
+1. **Vollständiger Nachname von Sonĝuel** (für Impressum)
+2. **Offizielle E-Mail-Adresse** (existiert `hallo@hairbysonguel.ch`? Falls nein: welche verwenden?)
+3. **Rechtsform** — Einzelfirma, GmbH oder andere? (Falls GmbH: UID/Handelsregister-Nr.)
+4. **Favicon-Stil**: „H" allein, „HS", oder eine kleine Schere/Blüte als Icon?
+
+## Technische Details
+
+- Route-Files: `src/routes/impressum.tsx` und `src/routes/datenschutz.tsx` (TanStack file-based routing)
+- Jede Route mit eigenem `head()` (Title, Description, `robots: noindex, follow` für Impressum/Datenschutz — Standardpraxis)
+- Cookie-Banner als eigene Komponente `src/components/CookieBanner.tsx`, in `__root.tsx` gemountet
+- Favicon per `imagegen--generate_image` (transparenter Hintergrund, quadratisch)
+- 404-Redesign direkt in `__root.tsx` (NotFoundComponent)
+
+## Was NICHT dazugehört (kommt in späteren Tickets)
+- Vorher/Nachher-Galerie
+- Online-Booking-Integration
+- Blog / FAQ
+- Google Analytics
+
+Sag mir kurz Bescheid mit den 4 Infos oben, dann setze ich alles in einem Rutsch um.
