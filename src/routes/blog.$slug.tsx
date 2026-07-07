@@ -1,4 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import type { ReactNode } from "react";
 import { ArrowUpRight, MessageCircle } from "lucide-react";
 import { url } from "@/lib/seo";
 
@@ -8,7 +9,7 @@ type Post = {
   description: string;
   date: string;
   readingTime: string;
-  render: () => JSX.Element;
+  render: () => ReactNode;
 };
 
 const POSTS: Record<string, Post> = {
