@@ -910,11 +910,11 @@ function WhatsAppIcon({ className }: { className?: string }) {
   );
 }
 
-function ContactRow({ icon: Icon, label, href, ariaLabel }: { icon: React.ComponentType<{ className?: string; "aria-hidden"?: boolean }>; label: string; href: string; ariaLabel?: string }) {
+function ContactRow({ icon: Icon, label, href, ariaLabel }: { icon: React.ComponentType<{ className?: string }>; label: string; href: string; ariaLabel?: string }) {
   return (
     <a href={href} aria-label={ariaLabel} className="group flex items-center gap-4">
       <div className="grid size-12 shrink-0 place-items-center rounded-full bg-blush transition-colors duration-500 group-hover:bg-ink group-hover:text-white">
-        <Icon className="size-5" aria-hidden="true" />
+        <Icon className="size-5" aria-hidden={true} />
       </div>
       <span className="text-ink/80 transition-colors group-hover:text-ink">{label}</span>
     </a>
