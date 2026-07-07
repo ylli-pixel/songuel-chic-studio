@@ -836,6 +836,7 @@ function Footer() {
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 py-6 text-xs text-white/50 md:flex-row lg:px-10">
           <span>© {new Date().getFullYear()} Hairbysonguel — Alle Rechte vorbehalten.</span>
           <div className="flex items-center gap-5">
+            <Link to="/blog" className="transition hover:text-gold">Blog</Link>
             <Link to="/impressum" className="transition hover:text-gold">Impressum</Link>
             <Link to="/datenschutz" className="transition hover:text-gold">Datenschutz</Link>
           </div>
