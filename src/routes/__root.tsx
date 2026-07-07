@@ -92,11 +92,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: SITE_TITLE },
       { name: "twitter:description", content: SITE_DESC },
-      { property: "og:image", content: "https://songuel-chic-studio.lovable.app/__l5e/assets-v1/79c45a01-2647-4a34-bb60-ff7803ddd457/og-image.jpg" },
-      { property: "og:image:width", content: "1200" },
-      { property: "og:image:height", content: "630" },
-      { name: "twitter:image", content: "https://songuel-chic-studio.lovable.app/__l5e/assets-v1/79c45a01-2647-4a34-bb60-ff7803ddd457/og-image.jpg" },
-
     ],
     links: [
       { rel: "stylesheet", href: appCss },
