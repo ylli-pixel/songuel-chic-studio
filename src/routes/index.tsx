@@ -64,7 +64,10 @@ export const Route = createFileRoute("/")({
       { property: "og:image", content: OG_IMAGE_URL },
       { name: "twitter:image", content: OG_IMAGE_URL },
     ],
-    links: [{ rel: "canonical", href: url("/") }],
+    links: [
+      { rel: "canonical", href: url("/") },
+      { rel: "preload", as: "image", href: hero, fetchpriority: "high" },
+    ],
     scripts: [
       {
         type: "application/ld+json",
@@ -326,6 +329,7 @@ function Hero() {
               alt="Elegante Frau mit gepflegter Balayage-Frisur im Salon Hairbysonguel in Dübendorf"
               width={1600}
               height={1800}
+              fetchPriority="high"
               className="size-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/10 via-transparent to-transparent" />
