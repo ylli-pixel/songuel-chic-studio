@@ -409,24 +409,28 @@ function About() {
         </div>
 
         <div className="lg:col-span-6">
-          <span className="eyebrow">Über uns</span>
-          <h2 className="mt-5 font-display text-4xl tracking-tight text-ink sm:text-5xl lg:text-6xl">
-            Ein Salon, in dem Sie <em className="text-gold">ankommen</em> dürfen.
+          <span className="eyebrow">Über Sonĝuel</span>
+          <h2 className="mt-5 font-display text-4xl leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl">
+            Ein Salon, in dem Sie <em className="not-italic text-gold">ankommen</em> dürfen.
           </h2>
-          <div className="mt-8 space-y-5 text-ink/75 leading-relaxed">
+          <div className="mt-8 space-y-5 text-[1.05rem] leading-[1.75] text-ink/75">
             <p>
-              Hairbysonguel ist mehr als ein Coiffeur — es ist ein ruhiger Ort mitten
-              in Dübendorf, an dem Handwerk, Zeit und persönliche Beratung im Mittelpunkt stehen.
+              „Für mich ist Coiffeur mehr als nur Haare schneiden. Ich nehme mir
+              Zeit, höre zu und schaue genau hin — denn Ihr Look soll zu Ihrem
+              Leben passen, nicht umgekehrt."
             </p>
             <p>
-              Mit Leidenschaft für Balayage, natürliche Farbnuancen und individuelle Schnitte
-              begleiten wir unsere Kundinnen seit über 15 Jahren. Jede Behandlung wird
-              sorgfältig auf Sie, Ihre Haarstruktur und Ihren Alltag abgestimmt.
+              Seit über 15 Jahren begleite ich Kundinnen mit Leidenschaft für
+              Balayage, feine Farbnuancen und Schnitte, die mitwachsen. Jede
+              Behandlung ist auf Ihre Haarstruktur, Ihren Alltag und Ihre
+              Wünsche abgestimmt — ganz ohne Standardrezept.
             </p>
             <p>
-              Wir arbeiten ausschliesslich mit hochwertigen, schonenden Produkten — für ein
-              Ergebnis, das nicht nur heute, sondern auch morgen strahlt.
+              In meinem Salon an der Bahnhofstrasse arbeite ich ausschliesslich
+              mit hochwertigen, veganen Produkten. Für ein Ergebnis, das nicht
+              nur heute schön ist, sondern auch morgen noch gesund glänzt.
             </p>
+            <p className="font-display text-lg italic text-ink">— Sonĝuel</p>
           </div>
 
           <div className="mt-10 grid grid-cols-3 gap-6 border-t border-ink/10 pt-8">
