@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
+import { url } from "@/lib/seo";
 
 export const Route = createFileRoute("/impressum")({
   head: () => ({
@@ -9,7 +10,9 @@ export const Route = createFileRoute("/impressum")({
       { name: "robots", content: "noindex, follow" },
       { property: "og:title", content: "Impressum — Hairbysonguel" },
       { property: "og:description", content: "Rechtliche Angaben." },
+      { property: "og:url", content: url("/impressum") },
     ],
+    links: [{ rel: "canonical", href: url("/impressum") }],
   }),
   component: ImpressumPage,
 });
