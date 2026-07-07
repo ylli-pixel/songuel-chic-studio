@@ -5,7 +5,8 @@ import {
   Instagram, Clock, Mail, ArrowUpRight, Menu, X,
 } from "lucide-react";
 
-import hero from "@/assets/hero.jpg";
+import heroAsset from "@/assets/about-songuel.jpeg.asset.json";
+const hero = heroAsset.url;
 import about from "@/assets/about.jpg";
 import g1 from "@/assets/g1.jpg";
 import g2 from "@/assets/g2.jpg";
