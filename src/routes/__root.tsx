@@ -92,6 +92,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: SITE_TITLE },
       { name: "twitter:description", content: SITE_DESC },
+      { title: "Lovable App" },
+      { property: "og:title", content: "Lovable App" },
+      { name: "twitter:title", content: "Lovable App" },
+      { name: "description", content: "Willkommen bei Hairbysonguel – Ihrem modernen Coiffeur- und Beautysalon in Dübendorf.
+
+Bei Hairbysonguel stehen Persönlichkeit, Qualität" },
+      { property: "og:description", content: "Willkommen bei Hairbysonguel – Ihrem modernen Coiffeur- und Beautysalon in Dübendorf.
+
+Bei Hairbysonguel stehen Persönlichkeit, Qualität" },
+      { name: "twitter:description", content: "Willkommen bei Hairbysonguel – Ihrem modernen Coiffeur- und Beautysalon in Dübendorf.
+
+Bei Hairbysonguel stehen Persönlichkeit, Qualität" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b90c1635-b71d-4821-a0a1-b9d00a2682f0/id-preview-fdfd67f5--4514c27d-a18d-4b9b-99d6-0b9d917bda2c.lovable.app-1783440086735.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b90c1635-b71d-4821-a0a1-b9d00a2682f0/id-preview-fdfd67f5--4514c27d-a18d-4b9b-99d6-0b9d917bda2c.lovable.app-1783440086735.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
