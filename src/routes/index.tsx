@@ -406,9 +406,6 @@ function Services() {
                 </div>
                 <h3 className="mt-6 font-display text-2xl text-ink">{s.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-ink/65">{s.desc}</p>
-                <div className="mt-6 flex items-center gap-2 text-sm font-medium text-gold opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                  Mehr erfahren <ArrowUpRight className="size-4" />
-                </div>
               </div>
             </article>
           ))}
