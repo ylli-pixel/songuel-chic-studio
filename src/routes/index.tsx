@@ -43,10 +43,6 @@ const FAQS = [
     a: "An der Bahnhofstrasse 33 in 8600 Dübendorf — 2 Minuten vom Bahnhof Dübendorf zu Fuss. Parkplätze findest du in der Blauen Zone rund um den Bahnhof.",
   },
   {
-    q: "Bietet ihr auch Herrenschnitte an?",
-    a: "Ja, Damen- und Herrenschnitte sind ein fixer Teil unseres Angebots. Schreib uns dein Wunschresultat kurz vorab, dann können wir realistisch einschätzen was möglich ist.",
-  },
-  {
     q: "Kann ich einen Termin kurzfristig absagen?",
     a: "Wir bitten dich, Absagen mindestens 24 Stunden vorher mitzuteilen — so können wir den Slot noch anderen Kundinnen anbieten.",
   },
