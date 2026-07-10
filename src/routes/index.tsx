@@ -593,7 +593,7 @@ function About() {
 
 /* ---------------- GALLERY ---------------- */
 const GALLERY = [
-  { src: g1, alt: "Blondes Balayage mit weichen Übergängen — gestylt bei Hairbysonguel Dübendorf", span: "row-span-2", w: 1600, h: 1800 },
+  { src: g1, alt: "Coiffeuse Sonĝuel am Styling einer Kundin im Salon Hairbysonguel in Dübendorf", span: "row-span-2", w: 576, h: 1024 },
   { src: g2, alt: "Extensions und dunkle Locken — Handwerk im Detail bei Hairbysonguel", span: "", w: 1200, h: 1200 },
   { src: g3, alt: "Langes Balayage mit natürlichem Farbverlauf", span: "row-span-2", w: 1200, h: 1500 },
   { src: salon, alt: "Innenraum des Salons Hairbysonguel in Dübendorf mit Stylingplätzen, grossen Spiegeln und Blumenwand", span: "", w: 1200, h: 900 },
