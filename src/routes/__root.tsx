@@ -115,10 +115,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "HairSalon",
-          "@id": "https://songuel-chic-studio.lovable.app/#salon",
+          "@id": "https://hairbysonguel.ch/#salon",
           name: "Hairbysonguel",
-          url: "https://songuel-chic-studio.lovable.app/",
-          image: "https://songuel-chic-studio.lovable.app/__l5e/assets-v1/79c45a01-2647-4a34-bb60-ff7803ddd457/og-image.jpg",
+          url: "https://hairbysonguel.ch/",
+          image: "https://hairbysonguel.ch/__l5e/assets-v1/79c45a01-2647-4a34-bb60-ff7803ddd457/og-image.jpg",
           telephone: "+41 76 722 95 19",
           address: {
             "@type": "PostalAddress",
