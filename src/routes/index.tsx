@@ -786,8 +786,9 @@ function Contact() {
             </div>
 
             <div className="mt-10 rounded-3xl bg-blush/60 p-6">
-              <p className="text-sm leading-relaxed text-ink/80">
-                Termine nur nach Vereinbarung — am besten via WhatsApp.
+              <p className="text-sm font-medium text-ink">Termine nach Vereinbarung</p>
+              <p className="mt-2 text-sm leading-relaxed text-ink/80">
+                In der Regel von 9:00 bis 19:00 Uhr erreichbar. Bitte vorab via WhatsApp absprechen, damit niemand vor verschlossener Tür steht.
               </p>
             </div>
           </div>
