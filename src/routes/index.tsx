@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
   Scissors, Palette, Sparkles, Wand2, Heart, Star, Phone, MapPin,
-  Instagram, Clock, Mail, ArrowUpRight, Menu, X, MessageCircle, Plus, Minus,
+  Instagram, ArrowUpRight, Menu, X, MessageCircle, Plus, Minus,
 } from "lucide-react";
 
 import heroAsset from "@/assets/hero-real.jpg.asset.json";
@@ -748,16 +748,6 @@ function Testimonials() {
 }
 
 /* ---------------- CONTACT ---------------- */
-const HOURS = [
-  { d: "Montag", h: "Geschlossen" },
-  { d: "Dienstag", h: "09:00 – 18:30" },
-  { d: "Mittwoch", h: "09:00 – 18:30" },
-  { d: "Donnerstag", h: "09:00 – 20:00" },
-  { d: "Freitag", h: "09:00 – 18:30" },
-  { d: "Samstag", h: "08:00 – 16:00" },
-  { d: "Sonntag", h: "Geschlossen" },
-];
-
 function Contact() {
   const [sent, setSent] = useState(false);
   return (
@@ -792,23 +782,13 @@ function Contact() {
 
             <div className="mt-10 space-y-4">
               <ContactRow icon={MapPin} label="Bahnhofstrasse 33, 8600 Dübendorf" href="https://maps.google.com/?q=Bahnhofstrasse+33+8600+Dübendorf" />
-              <ContactRow icon={Mail} label="hallo@hairbysonguel.ch" href="mailto:hallo@hairbysonguel.ch" />
               <ContactRow icon={Instagram} label="@hairbysonguel" href="https://instagram.com/hairbysonguel" />
             </div>
 
             <div className="mt-10 rounded-3xl bg-blush/60 p-6">
-              <div className="flex items-center gap-2 text-ink">
-                <Clock className="size-4 text-gold" />
-                <div className="text-xs font-medium uppercase tracking-widest">Öffnungszeiten</div>
-              </div>
-              <ul className="mt-5 space-y-2 text-sm">
-                {HOURS.map((h) => (
-                  <li key={h.d} className="flex items-center justify-between border-b border-ink/10 pb-2 last:border-0">
-                    <span className="text-ink/70">{h.d}</span>
-                    <span className="font-medium text-ink">{h.h}</span>
-                  </li>
-                ))}
-              </ul>
+              <p className="text-sm leading-relaxed text-ink/80">
+                Termine nur nach Vereinbarung — am besten via WhatsApp.
+              </p>
             </div>
           </div>
 

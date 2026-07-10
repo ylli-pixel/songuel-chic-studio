@@ -1,10 +1,20 @@
-Problem: In der Services-Sektion auf der Homepage erscheint bei Hover der Text "Mehr erfahren" mit einem Pfeil-Icon. Er ist in einem `<div>` und nicht klickbar, was für Nutzer verwirrend ist und keine Funktion hat.
+# Plan: Kontakt-Bereich anpassen
 
-Lösung: Den Hover-Call-to-Action aus jeder Service-Karte entfernen. Das betrifft nur die Zeilen im `SERVICES`-Map-Block in `src/routes/index.tsx`.
+## Ziel
+E-Mail entfernen und Öffnungszeiten-Block durch einen Hinweis zu Terminvereinbarungen ersetzen, damit keine Walk-ins suggeriert werden.
 
-Änderung:
-- Entferne den `<div>` mit "Mehr erfahren" und dem `<ArrowUpRight>`-Icon.
-- Der Import von `ArrowUpRight` bleibt, falls er an anderer Stelle noch verwendet wird (z.B. im Hero-Button). Falls er danach nur noch dort verwendet wird, bleibt er bestehen.
-- Keine neuen Dateien, keine neuen Abhängigkeiten.
+## Änderungen in `src/routes/index.tsx`
 
-Validierung: Build läuft durch, Vorschau zeigt Service-Karten ohne "Mehr erfahren"-Text.
+1. **E-Mail entfernen**
+   - Die `ContactRow` mit `Mail`-Icon und `hallo@hairbysonguel.ch` aus der Kontakt-Liste entfernen.
+
+2. **Öffnungszeiten-Block entfernen**
+   - Die `HOURS`-Konstante löschen (wird nur hier verwendet).
+   - Den kompletten gerenderten Öffnungszeiten-Block (ab `<div className="mt-10 rounded-3xl bg-blush/60 p-6">`) entfernen.
+
+3. **Hinweis zur Terminvereinbarung einfügen**
+   - An der Stelle des Öffnungszeiten-Blocks einen kurzen Text einbauen:  
+     „Termine nur nach Vereinbarung — am besten via WhatsApp.“
+
+## Keine weiteren Dateien betroffen
+Die Änderungen beschränken sich auf den `Contact`-Bereich in `src/routes/index.tsx`.
