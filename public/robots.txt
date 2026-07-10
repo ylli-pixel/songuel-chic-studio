@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://songuel-chic-studio.lovable.app/sitemap.xml
+Sitemap: https://hairbysonguel.ch/sitemap.xml
