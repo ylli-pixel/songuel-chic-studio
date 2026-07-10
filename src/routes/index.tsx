@@ -5,7 +5,7 @@ import {
   Instagram, ArrowUpRight, Menu, X, MessageCircle, Plus, Minus,
 } from "lucide-react";
 
-import heroAsset from "@/assets/hero-real.jpg.asset.json";
+import heroAsset from "@/assets/hero-songuel.jpg.asset.json";
 import gallery1Asset from "@/assets/gallery-1.jpg.asset.json";
 import gallery2Asset from "@/assets/gallery-2.jpg.asset.json";
 import gallery3Asset from "@/assets/gallery-3.jpg.asset.json";
@@ -322,9 +322,9 @@ function Hero() {
           <div className="relative mx-auto aspect-[4/5] w-full max-w-lg overflow-hidden rounded-[2.5rem] shadow-[0_40px_100px_-30px_rgba(46,46,46,0.35)]">
             <img
               src={hero}
-              alt="Elegante Frau mit gepflegter Balayage-Frisur im Salon Hairbysonguel in Dübendorf"
-              width={1600}
-              height={1800}
+              alt="Coiffeuse Sonĝuel stylt eine Kundin im Salon Hairbysonguel in Dübendorf"
+              width={576}
+              height={1024}
               fetchPriority="high"
               className="size-full object-cover"
             />
@@ -593,7 +593,7 @@ function About() {
 
 /* ---------------- GALLERY ---------------- */
 const GALLERY = [
-  { src: g1, alt: "Blondes Balayage mit weichen Übergängen — gestylt bei Hairbysonguel Dübendorf", span: "row-span-2", w: 1600, h: 1800 },
+  { src: g1, alt: "Coiffeuse Sonĝuel am Styling einer Kundin im Salon Hairbysonguel in Dübendorf", span: "row-span-2", w: 576, h: 1024 },
   { src: g2, alt: "Extensions und dunkle Locken — Handwerk im Detail bei Hairbysonguel", span: "", w: 1200, h: 1200 },
   { src: g3, alt: "Langes Balayage mit natürlichem Farbverlauf", span: "row-span-2", w: 1200, h: 1500 },
   { src: salon, alt: "Innenraum des Salons Hairbysonguel in Dübendorf mit Stylingplätzen, grossen Spiegeln und Blumenwand", span: "", w: 1200, h: 900 },
