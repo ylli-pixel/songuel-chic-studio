@@ -88,6 +88,7 @@ const POSTS: Record<string, Post> = {
   "balayage-vs-highlights": {
     slug: "balayage-vs-highlights",
     title: "Balayage vs. Highlights: Was passt zu dir?",
+    seoTitle: "Balayage vs. Highlights: Was passt zu dir?",
     description:
       "Balayage oder Highlights? Wir erklären den echten Unterschied, wann welche Technik Sinn macht — und was das für Pflege und Budget bedeutet.",
     date: "2026-07-07",
