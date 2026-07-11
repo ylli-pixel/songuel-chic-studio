@@ -6,6 +6,7 @@ import { url } from "@/lib/seo";
 type Post = {
   slug: string;
   title: string;
+  seoTitle: string;
   description: string;
   date: string;
   readingTime: string;
@@ -16,6 +17,7 @@ const POSTS: Record<string, Post> = {
   "balayage-pflege": {
     slug: "balayage-pflege",
     title: "Balayage richtig pflegen: 7 Tipps von deiner Coiffeuse in Dübendorf",
+    seoTitle: "Balayage pflegen: 7 Tipps aus Dübendorf",
     description:
       "So bleibt deine Balayage lange strahlend: 7 ehrliche Pflege-Tipps von Hairbysonguel — Produkte, Routine und Fehler, die du vermeiden solltest.",
     date: "2026-07-07",
@@ -86,6 +88,7 @@ const POSTS: Record<string, Post> = {
   "balayage-vs-highlights": {
     slug: "balayage-vs-highlights",
     title: "Balayage vs. Highlights: Was passt zu dir?",
+    seoTitle: "Balayage vs. Highlights: Was passt zu dir?",
     description:
       "Balayage oder Highlights? Wir erklären den echten Unterschied, wann welche Technik Sinn macht — und was das für Pflege und Budget bedeutet.",
     date: "2026-07-07",
@@ -149,6 +152,7 @@ const POSTS: Record<string, Post> = {
   "haare-pflegen-im-winter": {
     slug: "haare-pflegen-im-winter",
     title: "Haare pflegen im Winter: 5 Rituale gegen trockenes Haar",
+    seoTitle: "Haare im Winter: 5 Rituale gegen Trockenheit",
     description:
       "Heizungsluft, Wollmützen, Kälte — was deinen Haaren im Winter wirklich hilft. 5 einfache Rituale von Hairbysonguel in Dübendorf.",
     date: "2026-07-07",
@@ -225,7 +229,7 @@ export const Route = createFileRoute("/blog/$slug")({
     const canonical = url(`/blog/${params.slug}`);
     return {
       meta: [
-        { title: `${loaderData.title} | Hairbysonguel` },
+        { title: `${loaderData.seoTitle} | Hairbysonguel` },
         { name: "description", content: loaderData.description },
         { property: "og:title", content: loaderData.title },
         { property: "og:description", content: loaderData.description },
