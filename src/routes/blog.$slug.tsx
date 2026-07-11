@@ -17,6 +17,7 @@ const POSTS: Record<string, Post> = {
   "balayage-pflege": {
     slug: "balayage-pflege",
     title: "Balayage richtig pflegen: 7 Tipps von deiner Coiffeuse in Dübendorf",
+    seoTitle: "Balayage pflegen: 7 Tipps aus Dübendorf",
     description:
       "So bleibt deine Balayage lange strahlend: 7 ehrliche Pflege-Tipps von Hairbysonguel — Produkte, Routine und Fehler, die du vermeiden solltest.",
     date: "2026-07-07",
