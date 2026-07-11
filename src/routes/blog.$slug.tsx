@@ -229,7 +229,7 @@ export const Route = createFileRoute("/blog/$slug")({
     const canonical = url(`/blog/${params.slug}`);
     return {
       meta: [
-        { title: `${loaderData.title} | Hairbysonguel` },
+        { title: `${loaderData.seoTitle} | Hairbysonguel` },
         { name: "description", content: loaderData.description },
         { property: "og:title", content: loaderData.title },
         { property: "og:description", content: loaderData.description },
