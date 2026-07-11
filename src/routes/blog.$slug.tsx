@@ -152,6 +152,7 @@ const POSTS: Record<string, Post> = {
   "haare-pflegen-im-winter": {
     slug: "haare-pflegen-im-winter",
     title: "Haare pflegen im Winter: 5 Rituale gegen trockenes Haar",
+    seoTitle: "Haare im Winter: 5 Rituale gegen Trockenheit",
     description:
       "Heizungsluft, Wollmützen, Kälte — was deinen Haaren im Winter wirklich hilft. 5 einfache Rituale von Hairbysonguel in Dübendorf.",
     date: "2026-07-07",
