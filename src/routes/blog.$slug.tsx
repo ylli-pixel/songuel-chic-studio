@@ -6,6 +6,7 @@ import { url } from "@/lib/seo";
 type Post = {
   slug: string;
   title: string;
+  seoTitle: string;
   description: string;
   date: string;
   readingTime: string;
